@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.4)  4 DEC 2024 23:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.4)  5 DEC 2024 00:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -227,19 +227,19 @@ s/Dhruv Arora/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
 
  [1] [2] [3] [4]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-29.
+22.
 
 (A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [5] [6]
-Overfull \hbox (43.79817pt too wide) in paragraph at lines 197--199
+Overfull \hbox (43.79817pt too wide) in paragraph at lines 190--192
 []\OT1/ptm/b/n/12 Combine pow-ers cor-re-spond-ing to 1's in the bi-nary rep-re
 -sen-ta-tion of $\OML/cmm/m/it/12 k$\OT1/ptm/b/n/12 : \OT1/ptm/m/n/12 Us-ing $\
 OT1/cmr/m/n/12 101101110000001$\OT1/ptm/m/n/12 ,
  []
 
 [7] [8] [9]
-Overfull \hbox (5.29723pt too wide) detected at line 292
+Overfull \hbox (5.29723pt too wide) detected at line 285
 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Ax[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 Bx[
 ] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 Cx \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 D\OT
 1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 5[](\OML/cmm/m/it/12 Ax[] \
@@ -250,19 +250,19 @@ T1/cmr/m/n/12 + \OML/cmm/m/it/12 D\OT1/cmr/m/n/12 ) = 45678\OML/cmm/m/it/12 x[]
  \OT1/cmr/m/n/12 + 34125\OML/cmm/m/it/12 :
  []
 
-[10] [11] [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 406--407
+[10] [11] [12] [13] [14] [15] [16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 481--482
 []\OT1/ptm/m/n/12 University of Cam-bridge. "In-tro-duc-tion to Cryp-to-graphic
  Meth-ods: A Lec-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--407
+Underfull \hbox (badness 10000) in paragraph at lines 481--482
 \OT1/ptm/m/n/12 ture Se-ries on In-for-ma-tion Se-cu-rity." \OT1/ptm/m/it/12 Ce
 n-tre for In-for-ma-tion Se-cu-rity\OT1/ptm/m/n/12 , 2023,
  []
 
-[14] [15] (Draft1.aux)
+[18] [19] (Draft1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -289,9 +289,9 @@ msfonts/cm/cmsy10.pfb><A:/Users/Dhruv Arora/AppData/Local/Programs/MiKTeX/fonts
 s/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><A:/Users/Dhruv Arora/AppData/Local/P
 rograms/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><A:/Users/Dhruv Arora/AppData/L
 ocal/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Draft1.pdf (16 pages, 160587 bytes).
+Output written on Draft1.pdf (20 pages, 170776 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
+ 123 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

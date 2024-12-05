@@ -62,13 +62,6 @@ This investigation will start by establishing a broad understanding of different
 
 
 
-
-
-
-
-
-
-
 % Actual exploration
 \section{Exploration}
 
@@ -362,10 +355,92 @@ The recipient identifies \( M \) directly from the initial condition \( y'(0) = 
 
 
 
+\section*{Evaluation and Conclusion}
 
-% Brief Conclusion
-\section{Evaluation and Conclusion}
-In this investigation, I explored how differential calculus can be applied to improve the security and efficiency of cryptographic algorithms.  My investigation had a focus on optimizing the discrete logarithm problem. By analyzing how small changes affect cryptographic functions, I was able to identify ways to make these algorithms both harder to reverse and more resource-efficient for the system it is running on. Through calculus, we see that mathematical theory can strengthen real-world data security, making cryptographic methods more robust against attacks. This highlights the impact of using calculus in fields beyond just math and academics. Calculus has a striking relevance to pressing challenges in cybersecurity.
+The comparative exploration of Calculus Cryptography and the Discrete Logarithmic Problem (DLP) reveals nuanced insights into their mathematical foundations, computational complexity, and practical feasibility. This section evaluates their performance based on complexity, efficiency, and security, supported by mathematical models.
+
+\subsection*{Complexity}
+
+The complexity of both cryptographic techniques is inherently tied to the mathematical structures they exploit.
+
+\subsubsection*{1. DLP Complexity}
+\begin{itemize}
+    \item The DLP operates within the realm of modular arithmetic. Computing \( g^k \mod p \) during encryption is efficient due to modular exponentiation algorithms, which scale logarithmically with \( k \) and polynomially with \( \log(p) \). This efficiency is contrasted by the decryption process, which involves solving \( g^k \equiv C \pmod{p} \).
+    \item The difficulty of this problem resides in its \( \mathcal{O}(\sqrt{p}) \) complexity when solved using the \textit{Baby-Step Giant-Step} method. With \( p = 104729 \), this translates to approximately 324 iterations, as shown in the practical case.
+\end{itemize}
+
+\subsubsection*{2. Calculus Cryptography Complexity}
+\begin{itemize}
+    \item Calculus cryptography leverages differential equations, which, in many cases, require analytical or numerical techniques to solve. For a second-order linear equation:
+    \[
+    \frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = 45678x^2 + 34125,
+    \]
+    the solution involves characteristic roots for the homogeneous part and polynomial coefficient matching for the particular solution. Both tasks scale polynomially with the degree of the polynomial and the complexity of the differential operator.
+    \item Numerical solutions for non-linear or high-order equations increase complexity significantly, often scaling as \( \mathcal{O}(n^3) \), where \( n \) is the number of discretized intervals in a numerical method.
+\end{itemize}
+
+\paragraph*{Mathematical Implication}
+While the DLP’s complexity for decryption is tied to its \( \sqrt{p} \) scaling, calculus cryptography’s complexity is more variable, influenced by the order and nature of the differential equations. Higher complexity offers potential cryptographic strength but reduces efficiency.
+
+\subsection*{Efficiency}
+
+Efficiency measures the practicality of encryption and decryption in real-world applications.
+
+\subsubsection*{1. Encryption Efficiency}
+\begin{itemize}
+    \item \textbf{DLP:} Modular exponentiation (e.g., \( g^k \mod p \)) is highly efficient due to its reliance on repeated squaring, scaling logarithmically with \( k \). For \( k = 23457 \), encryption required approximately 15 modular multiplications based on the binary representation.
+    \item \textbf{Calculus Cryptography:} Encryption involves solving a differential equation and embedding the message \( M \) as an initial condition. In our case:
+    \[
+    \frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = f(x),
+    \]
+    solution synthesis involved characteristic equations and polynomial coefficient matching. This process is efficient for second-order linear equations but may slow down significantly for higher-order or non-linear equations.
+\end{itemize}
+
+\subsubsection*{2. Decryption Efficiency}
+\begin{itemize}
+    \item \textbf{DLP:} Solving \( g^k \equiv C \pmod{p} \) involves algorithms like Baby-Step Giant-Step, which require precomputation and iteration over \( \sqrt{p} \) steps. For \( p = 104729 \), decryption involved approximately 324 iterations, highlighting the exponential growth of difficulty with larger \( p \).
+    \item \textbf{Calculus Cryptography:} Decryption involves verifying initial conditions and potentially solving the differential equation again. In our case:
+    \[
+    y'(0) = M,
+    \]
+    directly revealed \( M = 45678 \), making decryption efficient for this specific setup. However, non-linear equations may require iterative numerical methods, increasing decryption time.
+\end{itemize}
+
+\paragraph*{Mathematical Implication}
+DLP benefits from highly optimized modular arithmetic, while calculus cryptography’s efficiency varies significantly based on the type of differential equation used. Linear equations allow for efficient computation, while non-linear cases introduce additional computational overhead.
+
+\subsection*{Security}
+
+Security is the critical benchmark for cryptographic systems, determined by the computational difficulty of breaking the encryption.
+
+\subsubsection*{1. DLP Security}
+\begin{itemize}
+    \item The DLP's security stems from the computational infeasibility of solving \( g^k \equiv C \pmod{p} \) without \( k \). For \( p = 104729 \), brute-forcing \( k \) would require \( p - 1 \approx 10^5 \) attempts, while Baby-Step Giant-Step reduces this to \( \sqrt{p} \approx 324 \).
+    \item Attacks like Pollard’s Rho or quantum Shor’s algorithm reduce complexity significantly (to \( \mathcal{O}(\sqrt[3]{p}) \) or \( \mathcal{O}(\log^3(p)) \) respectively), demonstrating that DLP’s security relies heavily on large \( p \).
+\end{itemize}
+
+\subsubsection*{2. Calculus Cryptography Security}
+\begin{itemize}
+    \item The security of calculus cryptography relies on the difficulty of reverse-engineering the differential equation and recovering the initial conditions. For our equation:
+    \[
+    \frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = f(x),
+    \]
+    the attacker must solve for \( M \) embedded in \( f(x) \) and verify it against initial conditions. This task grows in complexity with non-linearity or higher orders, making it computationally expensive to brute-force.
+    \item However, calculus cryptography lacks the well-established cryptanalysis of the DLP, making its security less predictable.
+\end{itemize}
+
+\paragraph*{Mathematical Implication}
+The DLP’s resilience is mathematically grounded in group theory and decades of cryptographic analysis, while calculus cryptography’s novel approach introduces an untested layer of complexity that could either strengthen or weaken security.
+
+\subsection*{Conclusion}
+
+Mathematically, the DLP provides a balance of efficiency, complexity, and proven security, making it suitable for large-scale cryptographic applications. Its reliance on modular arithmetic ensures scalability and resilience to attacks under classical computational paradigms.
+
+Calculus cryptography, on the other hand, offers a promising alternative rooted in differential equations. While its complexity may enhance security, its practical inefficiencies for non-linear or higher-order equations and lack of cryptanalytic maturity make it less reliable than the DLP for now.
+
+For IB students, exploring these two techniques offers an opportunity to delve deeply into advanced mathematical concepts like modular arithmetic, group theory, and differential equations. The comparative analysis emphasizes the role of mathematical modeling in evaluating cryptographic protocols, showcasing the interplay between theoretical complexity and real-world applicability.
+
+
 
 \newpage
 
