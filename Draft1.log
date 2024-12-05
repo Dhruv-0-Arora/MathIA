@@ -1,0 +1,297 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.4)  4 DEC 2024 23:41
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./Draft1.tex
+(Draft1.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\times.st
+y
+Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
+)
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace
+.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+)
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+)
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry
+.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.s
+ty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.st
+y
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count195
+\Gm@cntv=\count196
+\c@Gm@tempcnt=\count197
+\Gm@bindingoffset=\dimen141
+\Gm@wd@mp=\dimen142
+\Gm@odd@mp=\dimen143
+\Gm@even@mp=\dimen144
+\Gm@layoutwidth=\dimen145
+\Gm@layoutheight=\dimen146
+\Gm@layouthoffset=\dimen147
+\Gm@layoutvoffset=\dimen148
+\Gm@dimlist=\toks20
+
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry
+.cfg))
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr
+.sty
+Package: fancyhdr 2024/11/20 v4.4 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip50
+\f@nch@O@elh=\skip51
+\f@nch@O@erh=\skip52
+\f@nch@O@olh=\skip53
+\f@nch@O@orh=\skip54
+\f@nch@O@elf=\skip55
+\f@nch@O@erf=\skip56
+\f@nch@O@olf=\skip57
+\f@nch@O@orf=\skip58
+)
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.s
+ty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip59
+
+For additional information on amsmath, use the `?' option.
+
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.s
+ty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.st
+y
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks21
+\ex@=\dimen149
+))
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.st
+y
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen150
+)
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.st
+y
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count198
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count199
+\leftroot@=\count266
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count267
+\DOTSCASE@=\count268
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen151
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count269
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count270
+\dotsspace@=\muskip16
+\c@parentequation=\count271
+\dspbrk@lvl=\count272
+\tag@help=\toks22
+\row@=\count273
+\column@=\count274
+\maxfields@=\count275
+\andhelp@=\toks23
+\eqnshift@=\dimen152
+\alignsep@=\dimen153
+\tagshift@=\dimen154
+\tagwidth@=\dimen155
+\totwidth@=\dimen156
+\lineht@=\dimen157
+\@envbody=\toks24
+\multlinegap=\skip60
+\multlinetaggap=\skip61
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 2
+2.
+
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backe
+nd-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count276
+\l__pdf_internal_box=\box53
+) (Draft1.aux)
+\openout1 = `Draft1.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+[1
+
+{C:/Users/Dhruv Arora/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{A:/User
+s/Dhruv Arora/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
+(Draft1.toc)
+\tf@toc=\write3
+\openout3 = `Draft1.toc'.
+
+ [1] [2] [3] [4]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
+29.
+
+(A:\Users\Dhruv Arora\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+) [5] [6]
+Overfull \hbox (43.79817pt too wide) in paragraph at lines 197--199
+[]\OT1/ptm/b/n/12 Combine pow-ers cor-re-spond-ing to 1's in the bi-nary rep-re
+-sen-ta-tion of $\OML/cmm/m/it/12 k$\OT1/ptm/b/n/12 : \OT1/ptm/m/n/12 Us-ing $\
+OT1/cmr/m/n/12 101101110000001$\OT1/ptm/m/n/12 ,
+ []
+
+[7] [8] [9]
+Overfull \hbox (5.29723pt too wide) detected at line 292
+[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Ax[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 Bx[
+] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 Cx \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 D\OT
+1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 5[](\OML/cmm/m/it/12 Ax[] \
+OT1/cmr/m/n/12 + \OML/cmm/m/it/12 Bx[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 Cx \O
+T1/cmr/m/n/12 + \OML/cmm/m/it/12 D\OT1/cmr/m/n/12 ) + 6(\OML/cmm/m/it/12 Ax[] \
+OT1/cmr/m/n/12 + \OML/cmm/m/it/12 Bx[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 Cx \O
+T1/cmr/m/n/12 + \OML/cmm/m/it/12 D\OT1/cmr/m/n/12 ) = 45678\OML/cmm/m/it/12 x[]
+ \OT1/cmr/m/n/12 + 34125\OML/cmm/m/it/12 :
+ []
+
+[10] [11] [12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 406--407
+[]\OT1/ptm/m/n/12 University of Cam-bridge. "In-tro-duc-tion to Cryp-to-graphic
+ Meth-ods: A Lec-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 406--407
+\OT1/ptm/m/n/12 ture Se-ries on In-for-ma-tion Se-cu-rity." \OT1/ptm/m/it/12 Ce
+n-tre for In-for-ma-tion Se-cu-rity\OT1/ptm/m/n/12 , 2023,
+ []
+
+[14] [15] (Draft1.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 2146 strings out of 474486
+ 34137 string characters out of 5740887
+ 1931542 words of memory out of 5000000
+ 24435 multiletter control sequences out of 15000+600000
+ 575179 words of font info for 67 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,12n,65p,1056b,321s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<A:/Users/Dhruv Arora/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmex10.pfb><A:/Users/Dhruv Arora/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmmi12.pfb><A:/Users/Dhruv Arora/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><A:/Users/Dhruv Arora/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><A:/Users/Dhruv Aro
+ra/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><A:/Us
+ers/Dhruv Arora/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+r8.pfb><A:/Users/Dhruv Arora/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb><A:/Users/Dhruv Arora/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmsy8.pfb><A:/Users/Dhruv Arora/AppData/Local/Program
+s/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><A:/Users/Dhruv Arora/AppData/Local/P
+rograms/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><A:/Users/Dhruv Arora/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Draft1.pdf (16 pages, 160587 bytes).
+PDF statistics:
+ 110 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

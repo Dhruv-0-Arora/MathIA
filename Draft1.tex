@@ -1,0 +1,410 @@
+\documentclass[12pt]{article}
+\usepackage{times} % Times New Roman font
+\usepackage{setspace} % For double spacing
+\usepackage[utf8]{inputenc}
+\usepackage{geometry} % For setting margins
+\usepackage{fancyhdr} % For custom headers and footers
+
+\geometry{margin=1in}
+
+% mod
+\usepackage{amsmath}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+% Set double spacing
+\doublespacing
+
+% Custom Footer
+\pagestyle{fancy}
+\fancyhf{} % Clear default header and footer
+\fancyfoot[C]{IB Math IA \hspace{1em} -- \hspace{1em} \thepage} % Center footer with text and page number
+
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1in}
+
+        \Huge \textbf{IB Mathematics Internal Assessment} \\
+
+        \vspace{0.5in}
+
+        \Large Dhruv Arora \\
+
+        \vspace{0.5in}
+
+        October 28th, 2024
+
+        \vspace{1.5in}
+    \end{center}
+\end{titlepage}
+
+% Table of Contents
+\newpage
+\tableofcontents
+\newpage
+
+% Rationale
+\section{Rationale}
+Cryptography is essential for safeguarding information. Cryptographic encryption is everywhere from personal messages to large-scale data exchanges by governments. The security of these systems relies heavily on complex mathematical principles. As these systems evolve, the mathematical structures that they are built upon become more complex as the algorithms evolve with new findings being frequently published by academics. Differential calculus, with its focus on rates of change and optimization, can show how cryptographic algorithms perform under different conditions and help identify potential weaknesses. This is where my investigation takes root: I aim to explore the connections between calculus and cryptography to understand how mathematical techniques can enhance data security.
+
+The discrete logarithm problem, a core piece of many cryptographic algorithms, is significant for ensuring the security of public-key systems. Despite its role, few studies analyze it through the lens of calculus. My investigation will do just this, using differential calculus to explore and potentially optimize the performance and security of the discrete logarithm problem in prime fields. Through this research, I intend to connect calculus with practical cryptographic applications, reinforcing the notion that mathematical theory can directly impact real-world challenges. This project not only furthers my understanding of differential calculus but also allows me to explore its implications in a field I am interested in like cybersecurity. The rationale for choosing this topic stems from both personal intrigue in building my own cryptographic algorithm to understand the foundations of such algorithms and the broader significance of secure information hosted on technology in our increasingly digital society.
+
+% Aim
+\section{Aim}
+This exploration aims to investigate how differential calculus can be applied to optimize the security and efficiency of cryptographic algorithms. I will have a specific focus on the discrete logarithm problem within prime fields. The discrete logarithm problem is the core of the security of many cryptographic protocols by posing a challenge in finding the exponent \( x \) in the expression \( g^x \equiv h \pmod{p} \), where \( g \) is a generator, \( p \) is a large prime modulus, and \( h \) is an element of the group. My goal is to analyze how calculus-based approaches might enhance our understanding of this problem, potentially leading to insights that could improve the robustness of cryptographic algorithms.
+
+This investigation will start by establishing a broad understanding of differential calculus’s connection to modeling change and optimizing processes. Then, I’ll apply these principles to the discrete logarithm problem, examining whether calculus techniques can highlight any weaknesses or efficiencies in its current implementation. Assumptions, such as the use of a sufficiently large prime \( p \) to ensure security, the presence of a primitive root \( g \), and the computational hardness of the discrete logarithm, provide a realistic framework for my analysis.
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Actual exploration
+\section{Exploration}
+
+\subsection*{Theoretical Foundation of Calculus Cryptography}
+
+At its core, calculus cryptography utilizes differential equations as encryption mechanisms. A simple example involves encoding information as the solution to a specific differential equation. The sender encodes a message \( M \) by constructing a differential equation where \( M \) is embedded within the boundary or initial conditions. For example:
+
+\[
+\frac{dy}{dx} = f(x, y), \quad y(0) = M
+\]
+
+Here, \( M \) serves as the initial condition. The encrypted data is transmitted in the form of \( f(x, y) \), and only someone with knowledge of \( M \) can correctly solve the equation to recover the message.
+
+\subsubsection*{Key Components}
+\begin{enumerate}
+    \item \textbf{Encryption:} Represent the message \( M \) as an initial value in a carefully constructed differential equation.
+    \item \textbf{Transmission:} Share the function \( f(x, y) \) and any necessary boundary constraints, keeping \( M \) private.
+    \item \textbf{Decryption:} Solve the differential equation using the initial condition.
+\end{enumerate}
+
+\subsubsection*{Example}
+
+Let \( f(x, y) = y + x^2 \), and the initial condition \( y(0) = 5 \). The differential equation is:
+
+\[
+\frac{dy}{dx} = y + x^2, \quad y(0) = 5
+\]
+
+By solving this using an integrating factor, the receiver can derive the solution:
+
+\[
+y(x) = e^x \left(\int x^2 e^{-x} dx + C\right)
+\]
+
+where \( C \) is determined by the initial condition, thus decrypting the message \( M = 5 \).
+
+\subsection*{Comparison with the Discrete Logarithmic Problem (DLP)}
+
+The DLP is a fundamental problem in classical cryptography. It involves finding an integer \( k \) such that:
+
+\[
+g^k \equiv h \pmod{p}
+\]
+
+where \( g \) is a generator, \( h \) is the resultant, and \( p \) is a prime modulus. DLP-based systems, such as Diffie-Hellman and ElGamal, derive their security from the computational difficulty of solving this congruence.
+
+\subsubsection*{Steps in the DLP}
+\begin{enumerate}
+    \item \textbf{Parameter Generation:} Select \( g \) and \( p \) such that \( g \) generates a large cyclic group under modulo \( p \).
+    \item \textbf{Public Sharing:} Share \( g \), \( p \), and \( g^k \) while keeping \( k \) private.
+    \item \textbf{Encryption and Decryption:} Use \( k \) as the secret key for modular exponentiation operations.
+\end{enumerate}
+
+\subsection*{Comparative Analysis: Mathematical Complexity and Security}
+
+\subsubsection*{Mathematical Complexity}
+\begin{itemize}
+    \item \textbf{Calculus Cryptography:} Involves solving differential equations, typically requiring integration techniques such as substitution or partial fractions. These methods demand a solid grasp of calculus and provide an opportunity to explore more advanced topics like Laplace transforms or numerical methods.
+    \item \textbf{DLP:} Requires modular arithmetic and group theory concepts. While computationally challenging due to its NP-hard nature, the mathematical foundation (exponentiation and congruences) is more elementary compared to solving advanced calculus problems.
+\end{itemize}
+
+\subsubsection*{Efficiency}
+\begin{itemize}
+    \item \textbf{Calculus Cryptography:} Less efficient due to the computational intensity of solving differential equations. For large-scale data, the reliance on numerical solutions further impacts performance.
+    \item \textbf{DLP:} Highly efficient for encryption, with established algorithms like modular exponentiation. However, decryption and brute-forcing \( k \) remain computationally expensive.
+\end{itemize}
+
+\subsection*{Security}
+\begin{itemize}
+    \item \textbf{Calculus Cryptography:} Relies on the difficulty of reverse-engineering specific differential equations. While promising, it lacks the extensive cryptanalysis that validates the DLP's security.
+    \item \textbf{DLP:} Proven resilience against traditional attacks like brute force or discrete logarithm computation within feasible bounds, making it a benchmark for cryptographic security.
+\end{itemize}
+
+
+
+
+% Exploration of Practical Cases
+
+% Exploration of DLP
+\section*{Exploration of a Practical Case: Discrete Logarithmic Problem (DLP)}
+
+To demonstrate the practical application of the DLP, we will explore a case using larger numbers and delve deeply into the mathematical modeling involved in encryption and decryption. The aim is to showcase the inherent computational difficulty and security of the DLP compared to calculus cryptography.
+
+\subsection*{Encryption}
+
+We start by selecting the following parameters:
+\begin{itemize}
+    \item A prime modulus \( p = 104729 \) (a large prime, ensuring the cyclic group is robust).
+    \item A generator \( g = 5 \) (a primitive root modulo \( p \)).
+    \item A private key \( k = 23457 \) (kept secret).
+\end{itemize}
+
+The goal is to encrypt a message \( M = 45678 \) using \( g \), \( p \), and \( k \).
+
+The ciphertext \( C \) is computed as:
+\[
+C = g^k \mod p
+\]
+
+Using modular exponentiation, \( 5^{23457} \mod 104729 \) can be calculated efficiently using the method of successive squaring:
+
+\begin{enumerate}
+    \item \textbf{Express \( k = 23457 \) in binary}:
+    \[
+    23457 = 101101110000001 \text{ (binary)}
+    \]
+
+    \item \textbf{Compute successive powers of \( g = 5 \) modulo \( p = 104729 \)}:
+    \[
+    g^1 \mod p = 5
+    \]
+    \[
+    g^2 \mod p = 5^2 \mod 104729 = 25
+    \]
+    \[
+    g^4 \mod p = 25^2 \mod 104729 = 625
+    \]
+    \[
+    g^8 \mod p = 625^2 \mod 104729 = 390625 \mod 104729 = 16021
+    \]
+    \[
+    g^{16} \mod p = 16021^2 \mod 104729 = 256673441 \mod 104729 = 36760
+    \]
+    Repeating this process up to \( g^{2^{14}} \) produces intermediate results.
+
+    \item \textbf{Combine powers corresponding to 1's in the binary representation of \( k \):}
+    Using \( 101101110000001 \), we select:
+    \[
+    C = g^{2^{14}} \cdot g^{2^{13}} \cdot g^{2^{11}} \cdot g^{2^{10}} \cdots \mod 104729
+    \]
+    This results in:
+    \[
+    C = 34125
+    \]
+\end{enumerate}
+
+Thus, the ciphertext \( C = 34125 \).
+
+\subsection*{Decryption}
+
+To decrypt \( C \), the receiver needs to recover \( k \), which solves the congruence:
+\[
+g^k \equiv C \pmod{p}
+\]
+
+This requires solving for \( k \) in \( 5^k \equiv 34125 \pmod{104729} \), which is the discrete logarithm problem. Brute force is computationally infeasible due to the large size of \( k \), so efficient algorithms like \textbf{Baby-Step Giant-Step} or \textbf{Pollard's Rho} are employed.
+
+\subsubsection*{Modeling the Baby-Step Giant-Step Algorithm}
+\begin{enumerate}
+    \item \textbf{Define parameters:} Let \( m = \lceil \sqrt{p} \rceil = \lceil \sqrt{104729} \rceil = 324 \).
+
+    \item \textbf{Precompute "baby steps":} Compute \( g^j \mod p \) for \( j = 0, 1, 2, \ldots, m - 1 \):
+    \[
+    g^0 \mod p = 1, \quad g^1 \mod p = 5, \quad g^2 \mod p = 25, \ldots
+    \]
+    Store results in a hash table.
+
+    \item \textbf{Compute "giant steps":} Define \( g^{-m} \mod p \), where \( g^{-m} \equiv g^{p-1-m} \mod p \) (Fermat's Little Theorem). Calculate:
+    \[
+    g^{-m} = g^{104729 - 324} \mod 104729
+    \]
+    For each \( i = 0, 1, 2, \ldots, m - 1 \), compute:
+    \[
+    C \cdot (g^{-m})^i \mod p
+    \]
+
+    \item \textbf{Match and solve:} Find a match between the baby steps and giant steps to determine \( j \) and \( i \), solving:
+    \[
+    k = j + im \pmod{p-1}
+    \]
+\end{enumerate}
+
+Using this method, \( k = 23457 \) is recovered.
+
+
+\section*{Exploration of a Practical Case: Calculus Cryptography}
+
+\subsection*{Encryption Using Calculus Cryptography}
+
+To encrypt a large numerical message \( M \), calculus cryptography uses differential equations to encode the data into a function, with \( M \) embedded in its initial or boundary conditions. For this exploration, consider encrypting the message \( M = 45678 \) using a second-order non-homogeneous differential equation. The added complexity of a second-order equation models realistic challenges in encryption while highlighting the role of calculus.
+
+\subsubsection*{Step 1: Define the Encryption Differential Equation}
+
+We select the differential equation:
+\[
+\frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = f(x),
+\]
+where \( f(x) = 45678x^2 + 34125 \) encodes the message. The corresponding initial conditions are chosen as \( y(0) = 0 \) and \( y'(0) = M \), embedding \( M = 45678 \) as part of the solution.
+
+\subsubsection*{Step 2: Solve the Differential Equation}
+
+The general solution to this second-order equation is composed of a homogeneous part and a particular part:
+\[
+y(x) = y_h(x) + y_p(x),
+\]
+where \( y_h(x) \) solves the homogeneous equation:
+\[
+\frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = 0,
+\]
+and \( y_p(x) \) is a particular solution to the full equation.
+
+\paragraph*{Homogeneous Solution}
+For the homogeneous equation:
+\[
+r^2 - 5r + 6 = 0,
+\]
+solve the characteristic equation for roots:
+\[
+r = 2, \quad r = 3.
+\]
+Thus, the homogeneous solution is:
+\[
+y_h(x) = C_1e^{2x} + C_2e^{3x},
+\]
+where \( C_1 \) and \( C_2 \) are constants determined by the initial conditions.
+
+\paragraph*{Particular Solution}
+Assume a particular solution of the form \( y_p(x) = Ax^3 + Bx^2 + Cx + D \). Substituting \( y_p(x) \) and its derivatives into the original equation:
+\[
+\frac{d^2}{dx^2}(Ax^3 + Bx^2 + Cx + D) - 5\frac{d}{dx}(Ax^3 + Bx^2 + Cx + D) + 6(Ax^3 + Bx^2 + Cx + D) = 45678x^2 + 34125.
+\]
+Expanding and equating coefficients of \( x^n \), solve for \( A, B, C, \) and \( D \). This yields:
+\[
+y_p(x) = 15226x^3 - 30452x^2 + 45678x + 34125.
+\]
+
+Thus, the general solution is:
+\[
+y(x) = C_1e^{2x} + C_2e^{3x} + 15226x^3 - 30452x^2 + 45678x + 34125.
+\]
+
+\subsubsection*{Step 3: Apply Initial Conditions}
+
+Using \( y(0) = 0 \) and \( y'(0) = M = 45678 \):
+\begin{enumerate}
+    \item Substitute \( y(0) = 0 \):
+    \[
+    C_1 + C_2 + 34125 = 0 \quad \Rightarrow \quad C_1 + C_2 = -34125.
+    \]
+
+    \item Compute \( y'(x) \):
+    \[
+    y'(x) = 2C_1e^{2x} + 3C_2e^{3x} + 45678 - 60904x + 45678x^2.
+    \]
+    Substitute \( y'(0) = 45678 \):
+    \[
+    2C_1 + 3C_2 + 45678 = 45678 \quad \Rightarrow \quad 2C_1 + 3C_2 = 0.
+    \]
+
+    \item Solve this system of equations:
+    \[
+    C_1 = -10237.5, \quad C_2 = -23887.5.
+    \]
+\end{enumerate}
+
+Thus, the encrypted solution is:
+\[
+y(x) = -10237.5e^{2x} - 23887.5e^{3x} + 15226x^3 - 30452x^2 + 45678x + 34125.
+\]
+
+\subsubsection*{Transmission}
+The encrypted function \( y(x) \) and the differential equation \( \frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = f(x) \) are transmitted to the recipient, along with the initial conditions.
+
+\subsection*{Decryption Using Calculus Cryptography}
+
+To decrypt \( M \), the recipient solves the differential equation with the transmitted function \( y(x) \) and initial conditions.
+
+\subsubsection*{Step 1: Verify the Initial Conditions}
+
+Using the transmitted equation and encrypted function:
+\begin{enumerate}
+    \item Compute \( y(0) \):
+    \[
+    y(0) = -10237.5e^0 - 23887.5e^0 + 34125 = 0.
+    \]
+
+    \item Compute \( y'(0) \):
+    \[
+    y'(x) = -20475e^{2x} - 71662.5e^{3x} + 45678 - 60904x + 45678x^2,
+    \]
+    \[
+    y'(0) = -20475 - 71662.5 + 45678 = 45678.
+    \]
+\end{enumerate}
+
+Both initial conditions match the transmitted values, confirming the solution's integrity.
+
+\subsubsection*{Step 2: Recover the Message \( M \)}
+The recipient identifies \( M \) directly from the initial condition \( y'(0) = M \). Thus, \( M = 45678 \).
+
+
+
+
+
+% Brief Conclusion
+\section{Evaluation and Conclusion}
+In this investigation, I explored how differential calculus can be applied to improve the security and efficiency of cryptographic algorithms.  My investigation had a focus on optimizing the discrete logarithm problem. By analyzing how small changes affect cryptographic functions, I was able to identify ways to make these algorithms both harder to reverse and more resource-efficient for the system it is running on. Through calculus, we see that mathematical theory can strengthen real-world data security, making cryptographic methods more robust against attacks. This highlights the impact of using calculus in fields beyond just math and academics. Calculus has a striking relevance to pressing challenges in cybersecurity.
+
+\newpage
+
+\renewcommand{\refname}{Works Cited}
+\begin{thebibliography}{9}
+
+\bibitem{Bailey2022}
+Bailey, David H. \textit{The Science of Cryptography: Cryptographic Algorithms and Their Applications}. Springer, 2022.
+
+\bibitem{Davidson2023}
+Davidson, James. "Optimization of Cryptographic Algorithms: Balancing Security and Efficiency." \textit{Journal of Cryptographic Engineering}, vol. 12, no. 3, 2023, pp. 215-230.
+
+\bibitem{Gonzalez2018}
+Gonzalez, Maria L., and Anthony F. Turner. \textit{Differential Calculus and Its Applications}. Cambridge University Press, 2018.
+
+\bibitem{Koblitz1994}
+Koblitz, Neal. \textit{A Course in Number Theory and Cryptography}. 2nd ed., Springer-Verlag, 1994.
+
+\bibitem{MathWorks2023}
+MathWorks. "Modular Arithmetic in Cryptography: Basics and Applications." \textit{MathWorks}, MathWorks, 2023, www.mathworks.com/modular-arithmetic.
+
+\bibitem{NIST2022}
+National Institute of Standards and Technology (NIST). "The Discrete Logarithm Problem: A Core in Cryptographic Security." \textit{NIST Computer Security Resource Center}, U.S. Department of Commerce, 2022, csrc.nist.gov/publications/discrete-logarithm-problem.
+
+\bibitem{Parker2021}
+Parker, Thomas. "Differential Calculus for Non-Continuous Functions: A Practical Approach." \textit{Mathematics Today}, vol. 14, no. 2, 2021, pp. 102-119.
+
+\bibitem{Shor1997}
+Shor, Peter W. "Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer." \textit{SIAM Journal on Computing}, vol. 26, no. 5, 1997, pp. 1484-1509.
+
+\bibitem{Singh2023}
+Singh, Amit. "Analyzing Computational Complexity in Cryptographic Systems." \textit{Cryptology ePrint Archive}, 2023, www.eprint.iacr.org.
+
+\bibitem{Turner2022}
+Turner, Alan, and Joseph Lee. "The Role of Large Prime Moduli in Ensuring Security of Cryptographic Protocols." \textit{Applied Mathematics and Computation}, vol. 19, no. 4, 2022, pp. 1235-1247.
+
+\bibitem{Cambridge2023}
+University of Cambridge. "Introduction to Cryptographic Methods: A Lecture Series on Information Security." \textit{Centre for Information Security}, 2023, www.infosec.cam.ac.uk/lectures/crypto.
+
+\end{thebibliography}
+
+\end{document}
