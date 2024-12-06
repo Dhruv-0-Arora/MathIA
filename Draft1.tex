@@ -4,6 +4,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{geometry} % For setting margins
 \usepackage{fancyhdr} % For custom headers and footers
+\usepackage{indentfirst} % Ensures the first paragraph of each section is indented
+
+\setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.25 inches
 
 \geometry{margin=1in}
 
@@ -26,23 +29,24 @@
     \begin{center}
         \vspace*{1in}
 
-        \Huge \textbf{IB Mathematics Internal Assessment} \\
+        \textbf{IB MATH AA HL IA} \\
+
+        \vspace{0.5in}
+
+        \Large \textbf{A Comparative Analysis of Calculus-Based Cryptography and the Discrete Logarithmic Problem} \\
 
         \vspace{0.5in}
 
         \Large Dhruv Arora \\
 
-        \vspace{0.5in}
+        \vspace{0.25in}
 
-        October 28th, 2024
+        8 December, 2024
 
         \vspace{1.5in}
     \end{center}
 \end{titlepage}
 
-% Table of Contents
-\newpage
-\tableofcontents
 \newpage
 
 % Rationale
@@ -138,7 +142,7 @@ where \( g \) is a generator, \( h \) is the resultant, and \( p \) is a prime m
 
 
 
-% Exploration of Practical Cases
+% Exploration of Practical Cases %
 
 % Exploration of DLP
 \section*{Exploration of a Practical Case: Discrete Logarithmic Problem (DLP)}
@@ -238,8 +242,6 @@ Using this method, \( k = 23457 \) is recovered.
 
 
 \section*{Exploration of a Practical Case: Calculus Cryptography}
-
-\subsection*{Encryption Using Calculus Cryptography}
 
 To encrypt a large numerical message \( M \), calculus cryptography uses differential equations to encode the data into a function, with \( M \) embedded in its initial or boundary conditions. For this exploration, consider encrypting the message \( M = 45678 \) using a second-order non-homogeneous differential equation. The added complexity of a second-order equation models realistic challenges in encryption while highlighting the role of calculus.
 
@@ -355,6 +357,8 @@ The recipient identifies \( M \) directly from the initial condition \( y'(0) = 
 
 
 
+% Evaluation / Reflection
+
 \section*{Evaluation and Conclusion}
 
 The comparative exploration of Calculus Cryptography and the Discrete Logarithmic Problem (DLP) reveals nuanced insights into their mathematical foundations, computational complexity, and practical feasibility. This section evaluates their performance based on complexity, efficiency, and security, supported by mathematical models.
@@ -441,6 +445,8 @@ Calculus cryptography, on the other hand, offers a promising alternative rooted 
 For IB students, exploring these two techniques offers an opportunity to delve deeply into advanced mathematical concepts like modular arithmetic, group theory, and differential equations. The comparative analysis emphasizes the role of mathematical modeling in evaluating cryptographic protocols, showcasing the interplay between theoretical complexity and real-world applicability.
 
 
+
+% Works Cited page %
 
 \newpage
 
