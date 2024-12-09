@@ -381,99 +381,89 @@ This confirms that the recipient has correctly decrypted \( M = 83495 \). This d
 % Exploration of DLP
 \subsection*{Practical Case of Discrete Logarithmic Problem (DLP)}
 
-To demonstrate the practical application of the DLP, we will explore a case using larger numbers and delve deeply into the mathematical modeling involved in encryption and decryption. The aim is to showcase the inherent computational difficulty and security of the DLP compared to calculus cryptography.
+To demonstrate the practical application of the DLP, I am using a larger number that models a realistic scenario of encryption and decryption as we use in cryptography. My aim is to compare the computational difficulty and security of the DLP versus calculus cryptography.
 
 \subsubsection*{Encryption}
 
-We start by selecting the following parameters:
+To begin encrypting the example, I started by selecting the following parameters for the DLP:
 \begin{itemize}
-    \item A prime modulus \( p = 104729 \) (a large prime, ensuring the cyclic group is robust).
+    \item A prime modulus \( p = 104729 \) (a large prime, that ensures the cyclic group is very hard to break).
     \item A generator \( g = 5 \) (a primitive root modulo \( p \)).
-    \item A private key \( k = 23457 \) (kept secret).
+    \item A private key \( k = M \) (kept secret so only the sender and recipient have it). This was previously referenced as \( x \) in the DLP equation.
 \end{itemize}
 
-The goal is to encrypt a message \( M = 45678 \) using \( g \), \( p \), and \( k \).
+In this example, the goal is to encrypt the same message as the Calculus-based method, \( M = 83495 \), using \( g \), \( p \), and \( k \).
 
 The ciphertext \( C \) is computed as:
 \[
 C = g^k \mod p
 \]
 
-Using modular exponentiation, \( 5^{23457} \mod 104729 \) can be calculated efficiently using the method of successive squaring:
+Using modular exponentiation, \( 5^{83495} \mod 104729 \) can be calculated efficiently using the method of successive squaring:
 
-\begin{enumerate}
-    \item \textbf{Express \( k = 23457 \) in binary}:
-    \[
-    23457 = 101101110000001 \text{ (binary)}
-    \]
+\vspace{0.1in}
 
-    \item \textbf{Compute successive powers of \( g = 5 \) modulo \( p = 104729 \)}:
-    \[
-    g^1 \mod p = 5
-    \]
-    \[
-    g^2 \mod p = 5^2 \mod 104729 = 25
-    \]
-    \[
-    g^4 \mod p = 25^2 \mod 104729 = 625
-    \]
-    \[
-    g^8 \mod p = 625^2 \mod 104729 = 390625 \mod 104729 = 16021
-    \]
-    \[
-    g^{16} \mod p = 16021^2 \mod 104729 = 256673441 \mod 104729 = 36760
-    \]
-    Repeating this process up to \( g^{2^{14}} \) produces intermediate results.
-
-    \item \textbf{Combine powers corresponding to 1's in the binary representation of \( k \):}
-    Using \( 101101110000001 \), we select:
-    \[
-    C = g^{2^{14}} \cdot g^{2^{13}} \cdot g^{2^{11}} \cdot g^{2^{10}} \cdots \mod 104729
-    \]
-    This results in:
-    \[
-    C = 34125
-    \]
-\end{enumerate}
-
-Thus, the ciphertext \( C = 34125 \).
-
-\subsection*{Decryption}
-
-To decrypt \( C \), the receiver needs to recover \( k \), which solves the congruence:
+\centering First, I expressed \( k = 83495 \) in binary:
 \[
-g^k \equiv C \pmod{p}
+83495 = 1010001101010111 \text{ (binary)}
 \]
 
-This requires solving for \( k \) in \( 5^k \equiv 34125 \pmod{104729} \), which is the discrete logarithm problem. Brute force is computationally infeasible due to the large size of \( k \), so efficient algorithms like \textbf{Baby-Step Giant-Step} or \textbf{Pollard's Rho} are employed.
+Then, I computed the successive powers of \( g = 5 \) modulo \( p = 104729 \):
+\[
+g^1 \mod p = 5
+\]
+\[
+g^2 \mod p = 5^2 \mod 104729 = 25
+\]
+\[
+g^4 \mod p = 25^2 \mod 104729 = 625
+\]
+\[
+g^8 \mod p = 625^2 \mod 104729 = 390625 \mod 104729 = 16021
+\]
+\[
+g^{16} \mod p = 16021^2 \mod 104729 = 256673441 \mod 104729 = 36760
+\]
+Repeating this process up to \( g^{2^{14}} \) produces intermediate results.
 
-\subsubsection*{Modeling the Baby-Step Giant-Step Algorithm}
-\begin{enumerate}
-    \item \textbf{Define parameters:} Let \( m = \lceil \sqrt{p} \rceil = \lceil \sqrt{104729} \rceil = 324 \).
+Finally, I combined powers corresponding to 1's in the binary representation of \( k \):
+Using \( 1010001101010111 \), we select:
+\[
+C = g^{2^{14}} \cdot g^{2^{11}} \cdot g^{2^{10}} \cdot g^{2^8} \cdot g^{2^7} \cdot g^{2^5} \cdot g^{2^4} \cdot g^{2^2} \cdot g^{2^1} \mod 104729
+\]
+This results in:
+\[
+C = 58624
+\]
 
-    \item \textbf{Precompute "baby steps":} Compute \( g^j \mod p \) for \( j = 0, 1, 2, \ldots, m - 1 \):
-    \[
-    g^0 \mod p = 1, \quad g^1 \mod p = 5, \quad g^2 \mod p = 25, \ldots
-    \]
-    Store results in a hash table.
+\raggedright
+\setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.5 inches
 
-    \item \textbf{Compute "giant steps":} Define \( g^{-m} \mod p \), where \( g^{-m} \equiv g^{p-1-m} \mod p \) (Fermat's Little Theorem). Calculate:
-    \[
-    g^{-m} = g^{104729 - 324} \mod 104729
-    \]
-    For each \( i = 0, 1, 2, \ldots, m - 1 \), compute:
-    \[
-    C \cdot (g^{-m})^i \mod p
-    \]
+Therefore, by encrypting the message I calculated the ciphertext to be \( C = 58624 \). This obfuscated message is then ready to be sent to the recipient for decryption along with the values of \( g \) and \( p \).
 
-    \item \textbf{Match and solve:} Find a match between the baby steps and giant steps to determine \( j \) and \( i \), solving:
-    \[
-    k = j + im \pmod{p-1}
-    \]
-\end{enumerate}
+\subsubsection*{Decryption}
 
-Using this method, \( k = 23457 \) is recovered.
+To decrypt \( M \), the recipient uses the private key \( k = 83495 \) along with the known parameters \( g = 5 \) and \( p = 104729 \). Since \( C = g^k \mod p \), the recipient directly verifies that the message \( M \) corresponds to \( C \).
 
+\textbf{Step 1: Compute \( C \) and Verify}
+
+The encryption process computes the ciphertext \( C \) using:
+\[
+C = g^k \mod p.
+\]
+Substituting \( g = 5 \), \( k = 83495 \), and \( p = 104729 \), the recipient verifies the result via modular exponentiation. By successive squaring:
+\[
+5^{83495} \mod 104729 = 58624.
+\]
+
+Thus, the ciphertext \( C = 58624 \) matches the transmitted value, confirming the integrity of the encrypted data.
+
+\textbf{Step 2: Recover the Message}
+
+In the context of this example, the message \( M \) is directly encoded as the ciphertext \( C \). Since the recipient has verified the correctness of \( C \), they recover:
+\[
+M = C = 58624.
+\]
 
 
 
