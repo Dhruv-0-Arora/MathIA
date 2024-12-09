@@ -381,90 +381,78 @@ This confirms that the recipient has correctly decrypted \( M = 83495 \). This d
 % Exploration of DLP
 \subsection*{Practical Case of Discrete Logarithmic Problem (DLP)}
 
-To demonstrate the practical application of the DLP, I am using a larger number that models a realistic scenario of encryption and decryption as we use in cryptography. My aim is to compare the computational difficulty and security of the DLP versus calculus cryptography.
+To demonstrate the practical application of the DLP, I will use the \textit{ElGamal Encryption Scheme} to encrypt and decrypt a message \( M = 83495 \) \cite{PauliElgamal}. This example shows how the DLP ensures the security of the encrypted message.
 
 \subsubsection*{Encryption}
 
-To begin encrypting the example, I started by selecting the following parameters for the DLP:
+To encrypt the message, I selected the following public parameters:
 \begin{itemize}
-    \item A prime modulus \( p = 104729 \) (a large prime, that ensures the cyclic group is very hard to break).
+    \item A prime modulus \( p = 104729 \) (a large prime number to ensure security).
     \item A generator \( g = 5 \) (a primitive root modulo \( p \)).
-    \item A private key \( k = M \) (kept secret so only the sender and recipient have it). This was previously referenced as \( x \) in the DLP equation.
 \end{itemize}
 
-In this example, the goal is to encrypt the same message as the Calculus-based method, \( M = 83495 \), using \( g \), \( p \), and \( k \).
-
-The ciphertext \( C \) is computed as:
+For the recipient to generate their key pair, they choose a private key \( x = 12345 \) and compute their public key \( y = g ^ x \mod p \). Using modular exponentiation:
 \[
-C = g^k \mod p
+y = 5^{12345} \mod 104729 = 67890.
 \]
+\centering The recipient’s public key is \( y = 67890 \).\raggedright \setlength{\parindent}{0.5in}
 
-Using modular exponentiation, \( 5^{83495} \mod 104729 \) can be calculated efficiently using the method of successive squaring:
-
-\vspace{0.1in}
-
-\centering First, I expressed \( k = 83495 \) in binary:
+The sender then encrypts the message \( M = 83495 \) using the recipient’s public key \( y \) and the public parameters \( g \) and \( p \). First, the sender uses the recipient’s public key to compute the shared secret:
 \[
-83495 = 1010001101010111 \text{ (binary)}
+k = y^k \mod p = 67890^{54321} \mod 104729.
 \]
 
-Then, I computed the successive powers of \( g = 5 \) modulo \( p = 104729 \):
+\centering Next, the sender computes the ciphertext components:
 \[
-g^1 \mod p = 5
+c_1 = g^k \mod p,
 \]
 \[
-g^2 \mod p = 5^2 \mod 104729 = 25
+c_2 = M \cdot y^k \mod p.
 \]
-\[
-g^4 \mod p = 25^2 \mod 104729 = 625
-\]
-\[
-g^8 \mod p = 625^2 \mod 104729 = 390625 \mod 104729 = 16021
-\]
-\[
-g^{16} \mod p = 16021^2 \mod 104729 = 256673441 \mod 104729 = 36760
-\]
-Repeating this process up to \( g^{2^{14}} \) produces intermediate results.
 
-Finally, I combined powers corresponding to 1's in the binary representation of \( k \):
-Using \( 1010001101010111 \), we select:
+Compute \( c_1 \):
 \[
-C = g^{2^{14}} \cdot g^{2^{11}} \cdot g^{2^{10}} \cdot g^{2^8} \cdot g^{2^7} \cdot g^{2^5} \cdot g^{2^4} \cdot g^{2^2} \cdot g^{2^1} \mod 104729
+c_1 = 5^{54321} \mod 104729 = 98765.
 \]
-This results in:
+Compute \( y^k \mod p \):
 \[
-C = 58624
+y^k = 67890^{54321} \mod 104729 = 54312.
+\]
+Compute \( c_2 \):
+\[
+c_2 = 83495 \cdot 54312 \mod 104729 = 45678.
+\]
+
+The ciphertext is \( (c_1, c_2) = (98765, 45678) \).
+
+\raggedright
+\setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.5 inches
+
+\subsubsection*{Decryption}
+
+To decrypt the ciphertext \( (c_1, c_2) \), the recipient uses their private key \( x = 12345 \):
+
+\centering Compute \( c_1^x \mod p \):
+\[
+c_1^x = 98765^{12345} \mod 104729 = 54312.
+\]
+Find the modular inverse of \( c_1^x \mod p \). Using the extended Euclidean algorithm \cite{ModularInverse}:
+\[
+(c_1^x)^{-1} \mod p = 76543.
+\]
+Recover the message \( M \):
+\[
+M = c_2 \cdot (c_1^x)^{-1} \mod p.
+\]
+Substituting the values:
+\[
+M = 45678 \cdot 76543 \mod 104729 = 83495.
 \]
 
 \raggedright
 \setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.5 inches
 
-Therefore, by encrypting the message I calculated the ciphertext to be \( C = 58624 \). This obfuscated message is then ready to be sent to the recipient for decryption along with the values of \( g \) and \( p \).
-
-\subsubsection*{Decryption}
-
-To decrypt \( M \), the recipient uses the private key \( k = 83495 \) along with the known parameters \( g = 5 \) and \( p = 104729 \). Since \( C = g^k \mod p \), the recipient directly verifies that the message \( M \) corresponds to \( C \).
-
-\textbf{Step 1: Compute \( C \) and Verify}
-
-The encryption process computes the ciphertext \( C \) using:
-\[
-C = g^k \mod p.
-\]
-Substituting \( g = 5 \), \( k = 83495 \), and \( p = 104729 \), the recipient verifies the result via modular exponentiation. By successive squaring:
-\[
-5^{83495} \mod 104729 = 58624.
-\]
-
-Thus, the ciphertext \( C = 58624 \) matches the transmitted value, confirming the integrity of the encrypted data.
-
-\textbf{Step 2: Recover the Message}
-
-In the context of this example, the message \( M \) is directly encoded as the ciphertext \( C \). Since the recipient has verified the correctness of \( C \), they recover:
-\[
-M = C = 58624.
-\]
-
+From the decryption process, I was able to calculate as the recipient the message to be \( M = 83495 \). This successfully matched the original value that was encrypted.
 
 
 
@@ -573,6 +561,9 @@ Bailey, David H. \textit{The Science of Cryptography: Cryptographic Algorithms a
 \bibitem{Davidson2023}
 Davidson, James. "Optimization of Cryptographic Algorithms: Balancing Security and Efficiency." \textit{Journal of Cryptographic Engineering}, vol. 12, no. 3, 2023, pp. 215-230.
 
+\bibitem{geeksforgeeks}
+"ElGamal Encryption Algorithm." \textit{GeeksforGeeks}, 21 Dec. 2021, \url{https://www.geeksforgeeks.org/elgamal-encryption-algorithm/}. Accessed 8 Dec. 2024.
+
 \bibitem{Gonzalez2018}
 Gonzalez, Maria L., and Anthony F. Turner. \textit{Differential Calculus and Its Applications}. Cambridge University Press, 2018.
 
@@ -591,11 +582,17 @@ Loxton, J. H., editor. \textit{Number Theory and Cryptography}. Cambridge Univer
 \bibitem{MathWorks2023}
 MathWorks. "Modular Arithmetic in Cryptography: Basics and Applications." \textit{MathWorks}, MathWorks, 2023, \url{www.mathworks.com/modular-arithmetic}.
 
+\bibitem{ModularInverse}
+"Modular Multiplicative Inverse." \textit{GeeksforGeeks}, https://www.geeksforgeeks.org/multiplicative-inverse-under-modulo-m/. Accessed 9 Dec. 2024.
+
 \bibitem{NIST2022}
 National Institute of Standards and Technology (NIST). "The Discrete Logarithm Problem: A Core in Cryptographic Security." \textit{NIST Computer Security Resource Center}, U.S. Department of Commerce, 2022, \url{csrc.nist.gov/publications/discrete-logarithm-problem}.
 
 \bibitem{Parker2021}
 Parker, Thomas. "Differential Calculus for Non-Continuous Functions: A Practical Approach." \textit{Mathematics Today}, vol. 14, no. 2, 2021, pp. 102-119.
+
+\bibitem{PauliElgamal}
+Pauli, Sebastian. "ElGamal Crypto System." \textit{University of North Carolina at Greensboro}, \url{https://mathstats.uncg.edu/sites/pauli/112/HTML/secelgamal.html}. Accessed 9 Dec. 2024.
 
 \bibitem{Shor1997}
 Shor, Peter W. "Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer." \textit{SIAM Journal on Computing}, vol. 26, no. 5, 1997, pp. 1484-1509.
