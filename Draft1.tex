@@ -18,10 +18,10 @@
 % Set double spacing
 \doublespacing
 
-% Custom Footer
 \pagestyle{fancy}
-\fancyhf{} % Clear default header and footer
-\fancyfoot[C]{IB Math IA \hspace{1em} -- \hspace{1em} \thepage} % Center footer with text and page number
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
 
 \begin{document}
 
@@ -46,7 +46,7 @@
 
         \vspace{0.25in}
 
-        November  26, 2024
+        December 8, 2024
 
         \vspace{1.5in}
     \end{center}
@@ -358,16 +358,17 @@ Thus, the values of the constants are:
 C_1 = 222003.01, \quad C_2 = -152231.45.
 \]
 
-\raggedright
-\setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.5 inches
-
 \vspace{0.1in}
 
 Finally, verify \( M \) using the transmitted initial condition \( y(0) \):
 \[
 y(0) = C_1 + C_2 + 13723.44 = 222003.01 - 152231.45 + 13723.44 = 83495.
 \]
-This confirms that the recipient has correctly decrypted \( M = 83495 \).
+
+\raggedright
+\setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.5 inches
+
+This confirms that the recipient has correctly decrypted \( M = 83495 \). This demonstrations shows how calculus cryptography can be used to encrypt and decrypt messages using differential equations. In this example, I have used Partial Fractions with a forcing function \( f(x) \) to solve the differential equation that becomes an encrypted message. Then, using \( f(x) \) and the initial conditions, the recipient can decrypt the message by solving the differential equation.
 
 
 
