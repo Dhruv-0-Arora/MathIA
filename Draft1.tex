@@ -170,14 +170,15 @@ With this, the final result shows \( x = 4 \). Using \( x \) and the shared para
 
 \subsection*{Practical Case of Calculus Cryptography}
 
-For this exploration, I will be encrypting the message \( M = 45678 \) using a second-order non-homogeneous differential equation. The added complexity of a second-order equation models realistic challenges in encryption while showing the role of calculus.
+\subsubsection*{Encryption}
+
+For this exploration, I will be encrypting the message \( M = 83495 \) using a second-order non-homogeneous differential equation. The added complexity of a second-order equation models realistic challenges in encryption while showing the role of calculus.
 
 To begin with the 1st key component mentioned in the \textit{Foundation of Calculus Cryptography} section, I will encrypt the message. I will be selecting the differential equation:
 \[
 \frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = f(x),
 \]
-where \( f(x) = 45678x^2 + 34125 \) encodes the message. The corresponding initial conditions are chosen as \( y(0) = 0 \) and \( y'(0) = M \), embedding \( M = 45678 \) as part of the solution.
-
+where \( f(x) = 45678x^2 + 34125 \), or the forcing function, encodes the message. Only the recipient and sender have access to the forcing function. The corresponding initial conditions are chosen as \( y(0) = M \) and \( y'(0) = 0 \). This ensures that \( M \) is embedded solely in the homogeneous solution, keeping the particular solution independent of \( M \).
 
 % General Solution
 
@@ -191,7 +192,7 @@ y(x) = y_h(x) + y_p(x),
 \]
 and \( y_p(x) \) is a particular solution to the full equation.
 
-\vspace {0.1in}
+\vspace{0.1in}
 
 For the homogeneous equation:
 \[
@@ -205,65 +206,88 @@ As a result, the homogeneous solution is:
 \[
 y_h(x) = C_1e^{2x} + C_2e^{3x},
 \]
-in which \( C_1 \) and \( C_2 \) are constants that are determined by the initial conditions set above.
+in which \( C_1 \) and \( C_2 \) are constants determined by the initial conditions set above.
 
 \raggedright
 \setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.5 inches
 
-\vspace {0.1in}
+\vspace{0.1in}
 
 % Particular Solution
 
-For the \textbf{particular solution}, I used the assumption that the form was \( y_p(x) = Ax^3 + Bx^2 + Cx + D \). By substituting \( y_p(x) \) and its derivatives into the original equation, I got
-\[
-\frac{d^2}{dx^2}(Ax^3 + Bx^2 + Cx + D) - 5\frac{d}{dx}(Ax^3 + Bx^2 + Cx + D) + 6(Ax^3 + Bx^2 + Cx + D) = 45678x^2 + 34125.
-\]
-\centering Expanding and equating coefficients of \( x^n \), I solved for \( A, B, C, \) and \( D \). The result was
-\[
-y_p(x) = 15226x^3 - 30452x^2 + 45678x + 34125.
-\]
+For the \textbf{particular solution}, I used the assumption that the form was \( y_p(x) = Ax^3 + Bx^2 + Cx + D \). By substituting \( y_p(x) \) and its derivatives into the original equation, I performed the following calculations:
 
-The general solution of this is:
-\[
-y(x) = C_1e^{2x} + C_2e^{3x} + 15226x^3 - 30452x^2 + 45678x + 34125.
-\]
-
-\raggedright
-\setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.5 inches
-
-Next, I applied the initial conditions to determine the constants \( C_1 \) and \( C_2 \) and find the particular solution of the encrypted \( M \).
-
-Using \( y(0) = 0 \) and \( y'(0) = M = 45678 \):
 \begin{enumerate}
-    \item Substitute \( y(0) = 0 \):
+    \item Compute derivatives of \( y_p(x) \):
     \[
-    C_1 + C_2 + 34125 = 0 \quad \Rightarrow \quad C_1 + C_2 = -34125.
+    \frac{dy_p}{dx} = 3Ax^2 + 2Bx + C, \quad \frac{d^2y_p}{dx^2} = 6Ax + 2B
+    \]
+
+    \item Substitute into the original non-homogenous differential equation with \( f(x) = 45678x^2 + 34125 \) on the right-hand side:
+    \[
+    (6Ax + 2B) - 5(3Ax^2 + 2Bx + C) + 6(Ax^3 + Bx^2 + Cx + D) = 45678x^2 + 34125
+    \]
+
+    \item Group terms by powers of \( x \) and equate coefficients:
+    \begin{itemize}
+        \item Coefficient of \( x^3 \): \( 6A = 0 \quad \Rightarrow \quad A = 0. \)
+        \item Coefficient of \( x^2 \): \( -15A + 6B = 45678 \quad \Rightarrow \quad B = 7613. \)
+        \item Coefficient of \( x \): \( 6A - 10B + 6C = 0 \quad \Rightarrow \quad C = 12688.33. \)
+        \item Constant term: \( 2B - 5C + 6D = 34125 \quad \Rightarrow \quad D = 13723.44. \)
+    \end{itemize}
+\end{enumerate}
+
+Thus, the particular solution is:
+\[
+y_p(x) = 7613x^2 + 12688.33x + 13723.44
+\]
+
+The general solution with the initial conditions is:
+\[
+y(x) = C_1e^{2x} + C_2e^{3x} + 7613x^2 + 12688.33x + 13723.44
+\]
+
+% Applying Initial Conditions
+
+Next, I applied the initial conditions \( y(0) = M \) and \( y'(0) = 0 \) to solve for \( C_1 \) and \( C_2 \):
+\begin{enumerate}
+    \item Substitute \( y(0) = M \):
+    \[
+    C_1 + C_2 + 13723.44 = M \quad \Rightarrow \quad C_1 + C_2 = M - 13723.44.
     \]
 
     \item Compute \( y'(x) \):
     \[
-    y'(x) = 2C_1e^{2x} + 3C_2e^{3x} + 45678 - 60904x + 45678x^2.
+    y'(x) = 2C_1e^{2x} + 3C_2e^{3x} + 2(7613)x + 12688.33.
     \]
-    Substitute \( y'(0) = 45678 \):
+    Substitute \( y'(0) = 0 \):
     \[
-    2C_1 + 3C_2 + 45678 = 45678 \quad \Rightarrow \quad 2C_1 + 3C_2 = 0.
+    2C_1 + 3C_2 + 12688.33 = 0 \quad \Rightarrow \quad 2C_1 + 3C_2 = -12688.33.
     \]
 
     \item Solve this system of equations:
     \[
-    C_1 = -10237.5, \quad C_2 = -23887.5.
+    \begin{aligned}
+        & C_1 + C_2 = M - 13723.44, \\
+        & 2C_1 + 3C_2 = -12688.33.
+    \end{aligned}
+    \]
+    Solving these equations with \( M = 83495 \), I found:
+    \[
+    C_1 = 3M - 263903.21, \quad C_2 = -2M + 197131.77.
     \]
 \end{enumerate}
 
-Thus, the encrypted solution is:
+As a result, the final encrypted solution is:
 \[
-y(x) = -10237.5e^{2x} - 23887.5e^{3x} + 15226x^3 - 30452x^2 + 45678x + 34125.
+y(x) = (3M - 263903.21)e^{2x} + (-2M + 197131.77)e^{3x} + 7613x^2 + 12688.33x + 13723.44.
 \]
 
 \subsubsection*{Transmission}
-The encrypted function \( y(x) \) and the differential equation \( \frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = f(x) \) are transmitted to the recipient, along with the initial conditions.
 
-\subsection*{Decryption Using Calculus Cryptography}
+After encrypting the function, \( y(x) \) and the initial conditions are transmitted to the recipient. This ensures that the key, the forcing function \( f(x) \), and the encrypted message \( M \) are kept secure during transmission.
+
+\subsubsection*{Decryption}
 
 To decrypt \( M \), the recipient solves the differential equation with the transmitted function \( y(x) \) and initial conditions.
 
@@ -287,8 +311,7 @@ Using the transmitted equation and encrypted function:
 
 Both initial conditions match the transmitted values, confirming the solution's integrity.
 
-\subsubsection*{Step 2: Recover the Message \( M \)}
-The recipient identifies \( M \) directly from the initial condition \( y'(0) = M \). Thus, \( M = 45678 \).
+After transmission and decryption, the recipient is able to correctly calculate \( M \) directly from the initial condition \( y'(0) = M \). As a result, \( y'(0) = M = 45678 \).
 
 
 
