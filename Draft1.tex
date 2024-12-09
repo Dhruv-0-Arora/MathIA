@@ -28,27 +28,26 @@
 % Title Page
 \begin{titlepage}
     \begin{center}
-        \vspace*{1in}
+        \vspace*{2.5in}
 
         \Large \textbf{A Comparative Analysis of Calculus-Based Cryptography and the Discrete Logarithmic Problem} \\
 
         \vspace{0.5in}
 
-        \Large Dhruv Arora \\
+        \normalsize Dhruv Arora \\
 
-        \vspace{0.25in}
+        \vspace{0.05in}
 
         Ms. Reinsch
 
-        \vspace{0.25in}
+        \vspace{0.05in}
 
         IB Math HL 2
 
-        \vspace{0.25in}
+        \vspace{0.05in}
 
         December 8, 2024
 
-        \vspace{1.5in}
     \end{center}
 \end{titlepage}
 
@@ -459,93 +458,32 @@ From the decryption process, I was able to calculate as the recipient the messag
 
 
 
-% Evaluation / Reflection
+\section*{Evaluation}
 
-\section*{Evaluation and Conclusion}
+The results of this exploration show the advantages of the discrete logarithm problem (DLP) over calculus-based cryptography. In the practical case of calculus cryptography, for me to encode the message \( M = 83495 \), I had to solve the second-order non-homogeneous differential equation:
 
-The comparative exploration of Calculus Cryptography and the Discrete Logarithmic Problem (DLP) reveals nuanced insights into their mathematical foundations, computational complexity, and practical feasibility. This section evaluates their performance based on complexity, efficiency, and security, supported by mathematical models.
+\[
+\frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = 45678x^2 + 34125.
+\]
 
-\subsection*{Complexity}
+This involved deriving a general solution by calculating a homogeneous solution \( y_h(x) = C_1e^{2x} + C_2e^{3x} \) and a particular solution \( y_p(x) = 7613x^2 + 12688.33x + 13723.44 \), which were combined and solved with initial conditions. The process showed how complex it is to encode a single message despite how simple it was in the context of industry standard encryption methods, with multiple computations needed for constants \( C_1 \) and \( C_2 \), as well as verifying initial conditions during decryption. This level of computational intensity not only slows down encryption and decryption but also introduces the risk of numerical errors in practical implementations.
 
-The complexity of both cryptographic techniques is inherently tied to the mathematical structures they exploit.
+In contrast, the DLP encrypted the same message \( M = 83495 \) using modular exponentiation with a prime modulus \( p = 104729 \), generator \( g = 5 \), and private key \( x = 12345 \). The encrypted components \( c_1 = g^k \mod p \) and \( c_2 = M \cdot y^k \mod p \) resulted in a ciphertext of \( (98765, 45678) \). Decryption involved calculating the modular inverse using the extended Euclidean algorithm, which was computationally efficient and free from the precision issues that I observed in the calculus-based approach. Importantly, the difficulty of solving \( g^x \equiv h \pmod{p} \) without the private key ensured the message's security, as there are infinite solutions without the key due due to the modulo.
 
-\subsubsection*{1. DLP Complexity}
-\begin{itemize}
-    \item The DLP operates within the realm of modular arithmetic. Computing \( g^k \mod p \) during encryption is efficient due to modular exponentiation algorithms, which scale logarithmically with \( k \) and polynomially with \( \log(p) \). This efficiency is contrasted by the decryption process, which involves solving \( g^k \equiv C \pmod{p} \).
-    \item The difficulty of this problem resides in its \( \mathcal{O}(\sqrt{p}) \) complexity when solved using the \textit{Baby-Step Giant-Step} method. With \( p = 104729 \), this translates to approximately 324 iterations, as shown in the practical case.
-\end{itemize}
+The findings demonstrate that while calculus-based cryptography provides an intriguing theoretical application, its real-world practicality is severely hindered by computational inefficiency and limited security validation. The DLP, on the other hand, benefits from decades of cryptanalysis, proving its scalability and difficulty to break for large-scale applications. The modular arithmetic underpinning DLP operations ensures quick computations while its security relies on the infeasibility of solving the discrete logarithm without the key.
 
-\subsubsection*{2. Calculus Cryptography Complexity}
-\begin{itemize}
-    \item Calculus cryptography leverages differential equations, which, in many cases, require analytical or numerical techniques to solve. For a second-order linear equation:
-    \[
-    \frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = 45678x^2 + 34125,
-    \]
-    the solution involves characteristic roots for the homogeneous part and polynomial coefficient matching for the particular solution. Both tasks scale polynomially with the degree of the polynomial and the complexity of the differential operator.
-    \item Numerical solutions for non-linear or high-order equations increase complexity significantly, often scaling as \( \mathcal{O}(n^3) \), where \( n \) is the number of discretized intervals in a numerical method.
-\end{itemize}
+Overall, the evaluation showed that the DLP is the better cryptographic tool. Its difficult to break security framework and its streamlined computational process make it the preferred choice for real-world cryptography. While calculus-based methods offer theoretical novelty due to the immense difficulty and amount of computation that it required for me to encrypt and decrypt the message, they lack the efficiency and dependability required to compete with established algorithms like the DLP.
 
-\paragraph*{Mathematical Implication}
-While the DLP’s complexity for decryption is tied to its \( \sqrt{p} \) scaling, calculus cryptography’s complexity is more variable, influenced by the order and nature of the differential equations. Higher complexity offers potential cryptographic strength but reduces efficiency.
 
-\subsection*{Efficiency}
+% Reflection
 
-Efficiency measures the practicality of encryption and decryption in real-world applications.
+\section*{Reflection}
 
-\subsubsection*{1. Encryption Efficiency}
-\begin{itemize}
-    \item \textbf{DLP:} Modular exponentiation (e.g., \( g^k \mod p \)) is highly efficient due to its reliance on repeated squaring, scaling logarithmically with \( k \). For \( k = 23457 \), encryption required approximately 15 modular multiplications based on the binary representation.
-    \item \textbf{Calculus Cryptography:} Encryption involves solving a differential equation and embedding the message \( M \) as an initial condition. In our case:
-    \[
-    \frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = f(x),
-    \]
-    solution synthesis involved characteristic equations and polynomial coefficient matching. This process is efficient for second-order linear equations but may slow down significantly for higher-order or non-linear equations.
-\end{itemize}
+This exploration drew me in because it showed how math, even something as theoretical as calculus, can play a role in real-world applications like cryptography. Additionally, with the limited work in Calculus based method for cryptography, I thought it to be a very unique topic to study. My interest came from a personal fascination and experience with cybersecurity which I have built through my hours of coding learning networking. It fascinated me that complex mathematical problems, such as the discrete logarithm problem, are the foundation of protecting personal information.
 
-\subsubsection*{2. Decryption Efficiency}
-\begin{itemize}
-    \item \textbf{DLP:} Solving \( g^k \equiv C \pmod{p} \) involves algorithms like Baby-Step Giant-Step, which require precomputation and iteration over \( \sqrt{p} \) steps. For \( p = 104729 \), decryption involved approximately 324 iterations, highlighting the exponential growth of difficulty with larger \( p \).
-    \item \textbf{Calculus Cryptography:} Decryption involves verifying initial conditions and potentially solving the differential equation again. In our case:
-    \[
-    y'(0) = M,
-    \]
-    directly revealed \( M = 45678 \), making decryption efficient for this specific setup. However, non-linear equations may require iterative numerical methods, increasing decryption time.
-\end{itemize}
+Through this exploration, I discovered that math is not confined to solving abstract problems but can have practical uses even with computer technology, my main career interest. Comparing the discrete logarithm problem to calculus-based cryptography showed me the inherent strengths of modular arithmetic in creating secure and efficient protocols. The inability to solve \( g^x \equiv h \pmod{p} \) without the private key shows how infinite possible solutions with math create unbreakable security. In contrast, the vulnerabilities in calculus-based cryptography, such as numerical imprecision and computational intensity, taught me how theoretical difficulty does not always translate into practical strength.
 
-\paragraph*{Mathematical Implication}
-DLP benefits from highly optimized modular arithmetic, while calculus cryptography’s efficiency varies significantly based on the type of differential equation used. Linear equations allow for efficient computation, while non-linear cases introduce additional computational overhead.
-
-\subsection*{Security}
-
-Security is the critical benchmark for cryptographic systems, determined by the computational difficulty of breaking the encryption.
-
-\subsubsection*{1. DLP Security}
-\begin{itemize}
-    \item The DLP's security stems from the computational infeasibility of solving \( g^k \equiv C \pmod{p} \) without \( k \). For \( p = 104729 \), brute-forcing \( k \) would require \( p - 1 \approx 10^5 \) attempts, while Baby-Step Giant-Step reduces this to \( \sqrt{p} \approx 324 \).
-    \item Attacks like Pollard’s Rho or quantum Shor’s algorithm reduce complexity significantly (to \( \mathcal{O}(\sqrt[3]{p}) \) or \( \mathcal{O}(\log^3(p)) \) respectively), demonstrating that DLP’s security relies heavily on large \( p \).
-\end{itemize}
-
-\subsubsection*{2. Calculus Cryptography Security}
-\begin{itemize}
-    \item The security of calculus cryptography relies on the difficulty of reverse-engineering the differential equation and recovering the initial conditions. For our equation:
-    \[
-    \frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = f(x),
-    \]
-    the attacker must solve for \( M \) embedded in \( f(x) \) and verify it against initial conditions. This task grows in complexity with non-linearity or higher orders, making it computationally expensive to brute-force.
-    \item However, calculus cryptography lacks the well-established cryptanalysis of the DLP, making its security less predictable.
-\end{itemize}
-
-\paragraph*{Mathematical Implication}
-The DLP’s resilience is mathematically grounded in group theory and decades of cryptographic analysis, while calculus cryptography’s novel approach introduces an untested layer of complexity that could either strengthen or weaken security.
-
-\subsection*{Conclusion}
-
-Mathematically, the DLP provides a balance of efficiency, complexity, and proven security, making it suitable for large-scale cryptographic applications. Its reliance on modular arithmetic ensures scalability and resilience to attacks under classical computational paradigms.
-
-Calculus cryptography, on the other hand, offers a promising alternative rooted in differential equations. While its complexity may enhance security, its practical inefficiencies for non-linear or higher-order equations and lack of cryptanalytic maturity make it less reliable than the DLP for now.
-
-For IB students, exploring these two techniques offers an opportunity to delve deeply into advanced mathematical concepts like modular arithmetic, group theory, and differential equations. The comparative analysis emphasizes the role of mathematical modeling in evaluating cryptographic protocols, showcasing the interplay between theoretical complexity and real-world applicability.
-
+This exploration has increased my appreciation for the intersection of math and technology. It showed me that cryptography relies both the how complex equations are and also on their feasibility in large scales. I now see how math can bridge theoretical concepts and practical problems especially in technology.
 
 
 % Works Cited page %
