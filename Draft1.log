@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.8)  8 DEC 2024 19:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.8)  8 DEC 2024 23:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -215,26 +215,9 @@ LaTeX Font Info:    ... okay on input line 26.
 [1
 
 {C:/Users/a_dhr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{A:/Users/a_dh
-r/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
-
-LaTeX Warning: Citation `Loxton1990' on page 1 undefined on input line 59.
-
-[1] [2] [3]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-34.
-
-(A:\Users\a_dhr\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-[4] [5]
-Overfull \hbox (43.79817pt too wide) in paragraph at lines 202--204
-[]\OT1/ptm/b/n/12 Combine pow-ers cor-re-spond-ing to 1's in the bi-nary rep-re
--sen-ta-tion of $\OML/cmm/m/it/12 k$\OT1/ptm/b/n/12 : \OT1/ptm/m/n/12 Us-ing $\
-OT1/cmr/m/n/12 101101110000001$\OT1/ptm/m/n/12 ,
- []
-
-[6] [7] [8]
-Overfull \hbox (5.29723pt too wide) detected at line 295
+r/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}] [1] [2]
+[3] [4] [5]
+Overfull \hbox (5.29723pt too wide) detected at line 220
 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Ax[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 Bx[
 ] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 Cx \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 D\OT
 1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 5[](\OML/cmm/m/it/12 Ax[] \
@@ -245,51 +228,34 @@ T1/cmr/m/n/12 + \OML/cmm/m/it/12 D\OT1/cmr/m/n/12 ) = 45678\OML/cmm/m/it/12 x[]
  \OT1/cmr/m/n/12 + 34125\OML/cmm/m/it/12 :
  []
 
+[6] [7] [8]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
+07.
+
+(A:\Users\a_dhr\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
 [9] [10] [11] [12] [13] [14] [15] [16]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 4
-74.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 5
+10.
 
 (A:\Users\a_dhr\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 4792) in paragraph at lines 486--487
-[]\OT1/ptm/m/n/12 National In-sti-tute of Stan-dards and Tech-nol-ogy (NIST). "
-The Dis-crete Log-a-rithm
- []
-
-
-Underfull \hbox (badness 4621) in paragraph at lines 486--487
-\OT1/ptm/m/n/12 Prob-lem: A Core in Cryp-to-graphic Se-cu-rity." \OT1/ptm/m/it/
-12 NIST Com-puter Se-cu-rity Re-source
- []
-
-
-Underfull \hbox (badness 1688) in paragraph at lines 486--487
-\OT1/ptm/m/it/12 Cen-ter\OT1/ptm/m/n/12 , U.S. De-part-ment of Com-merce, 2022,
- $\OT1/pcr/m/n/12 csrc . nist . gov / publications /
- []
-
 [17] [18] (Draft1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 2282 strings out of 474486
- 36187 string characters out of 5743755
- 1932542 words of memory out of 5000000
- 24562 multiletter control sequences out of 15000+600000
+ 2284 strings out of 474486
+ 36229 string characters out of 5743755
+ 1931542 words of memory out of 5000000
+ 24564 multiletter control sequences out of 15000+600000
  573561 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,12n,65p,853b,319s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,12n,65p,844b,323s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <A:/Users/a_dhr/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><A:/Users/a_dhr/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi12.pfb><A:/Users/a_dhr/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -303,7 +269,7 @@ dhr/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><A:/Users/
 a_dhr/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><A:/Users/
 a_dhr/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><A:/Users/
 a_dhr/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Draft1.pdf (19 pages, 184124 bytes).
+Output written on Draft1.pdf (19 pages, 183350 bytes).
 PDF statistics:
  125 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

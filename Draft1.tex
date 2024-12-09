@@ -7,7 +7,7 @@
 \usepackage{indentfirst} % Ensures the first paragraph of each section is indented
 \usepackage{url}
 
-\setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.25 inches
+\setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.5 inches
 
 \geometry{margin=1in}
 
@@ -75,28 +75,31 @@ This study will begin by establishing the theoretical foundation of differential
 
 
 % Actual exploration
-\section{Exploration}
+\section*{Exploration}
 
-\subsection*{Theoretical Foundation of Calculus Cryptography}
+\subsubsection*{Mathematical Complexity and Security}
+When comparing calculus-based cryptography to the discrete logarithm problem (DLP), the differences in mathematical foundations, computational efficiency, and security are evident. Calculus-based cryptographic methods rely on solving differential equations using techniques such as substitution, partial fractions, and numerical solutions, which require an advanced understanding of calculus concepts \cite{Stewart2016}. On the other hand, DLP relies on modular arithmetic and group theory, with roots in simpler operations like exponentiation and congruences, making its mathematical basis more accessible \cite{Trappe2006}.
 
-At its core, calculus cryptography utilizes differential equations as encryption mechanisms. A simple example involves encoding information as the solution to a specific differential equation. The sender encodes a message \( M \) by constructing a differential equation where \( M \) is embedded within the boundary or initial conditions. For example:
+While calculus-based methods present an opportunity to explore sophisticated analytical tools, they are computationally intensive. This limits their efficiency in large-scale data processing compared to the well-established modular exponentiation algorithms used in DLP-based cryptographic systems, which are optimized for performance \cite{Koblitz1994}. From a security perspective, the DLP has been extensively analyzed and is considered a benchmark for cryptographic strength, as its security relies on the computational difficulty of solving discrete logarithms \cite{Trappe2006}. Conversely, calculus-based approaches, which depend on the difficulty of reverse-engineering differential equations, are less validated and lack the same level of cryptanalytic scrutiny.
+
+% Explaining Calculus Cryptography and my algorithmic methodology to solve it %
+\subsubsection*{Foundation of Calculus Cryptography}
+
+The method of Calculus cryptography that I will be using in my comparison utilizes  differential equations as encryption mechanisms. A simple example involves encoding information as the solution to a specific differential equation. The sender encodes a message \( M \) by creating a differential equation where \( M \) is embedded within the boundary or initial conditions. For example:
 
 \[
 \frac{dy}{dx} = f(x, y), \quad y(0) = M
 \]
 
-Here, \( M \) serves as the initial condition. The encrypted data is transmitted in the form of \( f(x, y) \), and only someone with knowledge of \( M \) can correctly solve the equation to recover the message.
+In this instance, \( M \) is the the initial condition. The encrypted data is transmitted in the form of \( f(x, y) \), and only someone who knows what \( M \) is can actually correctly solve the equation and recover the message. To actually use calculus cryptography, there are three key components:
 
-\subsubsection*{Key Components}
 \begin{enumerate}
-    \item \textbf{Encryption:} Represent the message \( M \) as an initial value in a carefully constructed differential equation.
+    \item \textbf{Encryption:} Represent the message \( M \) as an initial value in a differential equation.
     \item \textbf{Transmission:} Share the function \( f(x, y) \) and any necessary boundary constraints, keeping \( M \) private.
     \item \textbf{Decryption:} Solve the differential equation using the initial condition.
 \end{enumerate}
 
-\subsubsection*{Example}
-
-Let \( f(x, y) = y + x^2 \), and the initial condition \( y(0) = 5 \). The differential equation is:
+To showcase the application of calculus cryptography, I will encrypt a message \( M = 5 \) using a first-order differential equation and demonstrate the decryption process. In this example, Let \( f(x, y) = y + x^2 \), and the initial condition \( y(0) = 5 \). The differential equation is:
 
 \[
 \frac{dy}{dx} = y + x^2, \quad y(0) = 5
@@ -110,54 +113,194 @@ y(x) = e^x \left(\int x^2 e^{-x} dx + C\right)
 
 where \( C \) is determined by the initial condition, thus decrypting the message \( M = 5 \).
 
-\subsection*{Comparison with the Discrete Logarithmic Problem (DLP)}
 
-The DLP is a fundamental problem in classical cryptography. It involves finding an integer \( k \) such that:
 
+
+% Explaining the Discrete Logarithmic Problem and my algorithmic methodology to solve it %
+\subsubsection*{Foundation of Discrete Logarithmic Problem (DLP)}
+
+For my comparison, I have included the Discrete Logarithmic Problem due to the heavy reliance of this problem in the current cryptographic space. As explained in the introduction, the DLP is a fundamental problem in encoding message. It involves finding an integer \( x \) such that:
 \[
-g^k \equiv h \pmod{p}
+g^x \equiv h \pmod{p}
 \]
+where \( g \) is a generator, \( h \) is the resultant, and \( p \) is a prime modulus. DLP-based systems, such as Diffie-Hellman and ElGamal, derive their security from the computational difficulty of solving this congruence \cite{HandbookAppliedCryptography}. The DLP process that I will be using can be broken down into three key steps:
 
-where \( g \) is a generator, \( h \) is the resultant, and \( p \) is a prime modulus. DLP-based systems, such as Diffie-Hellman and ElGamal, derive their security from the computational difficulty of solving this congruence.
-
-\subsubsection*{Steps in the DLP}
 \begin{enumerate}
     \item \textbf{Parameter Generation:} Select \( g \) and \( p \) such that \( g \) generates a large cyclic group under modulo \( p \).
-    \item \textbf{Public Sharing:} Share \( g \), \( p \), and \( g^k \) while keeping \( k \) private.
-    \item \textbf{Encryption and Decryption:} Use \( k \) as the secret key for modular exponentiation operations.
+    \item \textbf{Public Sharing:} Share \( g \), \( p \), and \( g^x \) while keeping \( x \) private.
+    \item \textbf{Encryption and Decryption:} Use \( x \) as the secret key for modular exponentiation operations.
 \end{enumerate}
 
-\subsection*{Comparative Analysis: Mathematical Complexity and Security}
+To showcase the application of the discrete logarithmic problem (DLP), I will encrypt a message \( M = 9 \) using modular exponentiation and demonstrate the decryption process. In this example, let the generator \( g = 3 \), the prime modulus \( p = 17 \), and the private key \( x = 4 \). The encryption process computes:
 
-\subsubsection*{Mathematical Complexity}
-\begin{itemize}
-    \item \textbf{Calculus Cryptography:} Involves solving differential equations, typically requiring integration techniques such as substitution or partial fractions. These methods demand a solid grasp of calculus and provide an opportunity to explore more advanced topics like Laplace transforms or numerical methods.
-    \item \textbf{DLP:} Requires modular arithmetic and group theory concepts. While computationally challenging due to its NP-hard nature, the mathematical foundation (exponentiation and congruences) is more elementary compared to solving advanced calculus problems.
-\end{itemize}
+\[
+C = g^x \pmod{p}
+\]
+\centering Substituting the values, I can calculate:
+\[
+C = 3^4 \pmod{17} = 81 \pmod{17} = 13
+\]
 
-\subsubsection*{Efficiency}
-\begin{itemize}
-    \item \textbf{Calculus Cryptography:} Less efficient due to the computational intensity of solving differential equations. For large-scale data, the reliance on numerical solutions further impacts performance.
-    \item \textbf{DLP:} Highly efficient for encryption, with established algorithms like modular exponentiation. However, decryption and brute-forcing \( k \) remain computationally expensive.
-\end{itemize}
+As a result, the encrypted message, or ciphertext, is \( C = 13 \).
 
-\subsection*{Security}
-\begin{itemize}
-    \item \textbf{Calculus Cryptography:} Relies on the difficulty of reverse-engineering specific differential equations. While promising, it lacks the extensive cryptanalysis that validates the DLP's security.
-    \item \textbf{DLP:} Proven resilience against traditional attacks like brute force or discrete logarithm computation within feasible bounds, making it a benchmark for cryptographic security.
-\end{itemize}
+\vspace {0.1in}
+
+To decrypt, the receiver needs to recover \( x \) such that:
+\[
+3^x \equiv 13 \pmod{17}
+\]
+This requires solving the DLP. Testing successive powers of \( 3 \) modulo \( 17 \), I could find that:
+\[
+3^4 \equiv 13 \pmod{17}
+\]
+
+\raggedright
+\setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.5 inches
+
+With this, the final result shows \( x = 4 \). Using \( x \) and the shared parameters \( g \) and \( p \), the receiver decrypts the original message \( M = 9 \). If a receiver does not have the private key \( x \), the decryption process becomes computationally infeasible, ensuring the security of the message. However, having access to \( x \) makes the decryption process computationally straightforward, successfully retrieving \( M \).
+
+
+
 
 
 
 
 % Exploration of Practical Cases %
 
+
+\subsection*{Practical Case of Calculus Cryptography}
+
+For this exploration, I will be encrypting the message \( M = 45678 \) using a second-order non-homogeneous differential equation. The added complexity of a second-order equation models realistic challenges in encryption while showing the role of calculus.
+
+To begin with the 1st key component mentioned in the \textit{Foundation of Calculus Cryptography} section, I will encrypt the message. I will be selecting the differential equation:
+\[
+\frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = f(x),
+\]
+where \( f(x) = 45678x^2 + 34125 \) encodes the message. The corresponding initial conditions are chosen as \( y(0) = 0 \) and \( y'(0) = M \), embedding \( M = 45678 \) as part of the solution.
+
+
+% General Solution
+
+Next, to encrypt the message I solved the differential equation mentioned above. The \textbf{general solution} to this second-order equation is composed of a homogeneous part and a particular part:
+\[
+y(x) = y_h(x) + y_p(x),
+\]
+\centering where \( y_h(x) \) solves the homogeneous equation:
+\[
+\frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = 0,
+\]
+and \( y_p(x) \) is a particular solution to the full equation.
+
+\vspace {0.1in}
+
+For the homogeneous equation:
+\[
+r^2 - 5r + 6 = 0,
+\]
+I solved the characteristic equation for roots as
+\[
+r = 2, \quad r = 3.
+\]
+As a result, the homogeneous solution is:
+\[
+y_h(x) = C_1e^{2x} + C_2e^{3x},
+\]
+in which \( C_1 \) and \( C_2 \) are constants that are determined by the initial conditions set above.
+
+\raggedright
+\setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.5 inches
+
+\vspace {0.1in}
+
+% Particular Solution
+
+For the \textbf{particular solution}, I used the assumption that the form was \( y_p(x) = Ax^3 + Bx^2 + Cx + D \). By substituting \( y_p(x) \) and its derivatives into the original equation, I got
+\[
+\frac{d^2}{dx^2}(Ax^3 + Bx^2 + Cx + D) - 5\frac{d}{dx}(Ax^3 + Bx^2 + Cx + D) + 6(Ax^3 + Bx^2 + Cx + D) = 45678x^2 + 34125.
+\]
+\centering Expanding and equating coefficients of \( x^n \), I solved for \( A, B, C, \) and \( D \). The result was
+\[
+y_p(x) = 15226x^3 - 30452x^2 + 45678x + 34125.
+\]
+
+The general solution of this is:
+\[
+y(x) = C_1e^{2x} + C_2e^{3x} + 15226x^3 - 30452x^2 + 45678x + 34125.
+\]
+
+\raggedright
+\setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.5 inches
+
+Next, I applied the initial conditions to determine the constants \( C_1 \) and \( C_2 \) and find the particular solution of the encrypted \( M \).
+
+Using \( y(0) = 0 \) and \( y'(0) = M = 45678 \):
+\begin{enumerate}
+    \item Substitute \( y(0) = 0 \):
+    \[
+    C_1 + C_2 + 34125 = 0 \quad \Rightarrow \quad C_1 + C_2 = -34125.
+    \]
+
+    \item Compute \( y'(x) \):
+    \[
+    y'(x) = 2C_1e^{2x} + 3C_2e^{3x} + 45678 - 60904x + 45678x^2.
+    \]
+    Substitute \( y'(0) = 45678 \):
+    \[
+    2C_1 + 3C_2 + 45678 = 45678 \quad \Rightarrow \quad 2C_1 + 3C_2 = 0.
+    \]
+
+    \item Solve this system of equations:
+    \[
+    C_1 = -10237.5, \quad C_2 = -23887.5.
+    \]
+\end{enumerate}
+
+Thus, the encrypted solution is:
+\[
+y(x) = -10237.5e^{2x} - 23887.5e^{3x} + 15226x^3 - 30452x^2 + 45678x + 34125.
+\]
+
+\subsubsection*{Transmission}
+The encrypted function \( y(x) \) and the differential equation \( \frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = f(x) \) are transmitted to the recipient, along with the initial conditions.
+
+\subsection*{Decryption Using Calculus Cryptography}
+
+To decrypt \( M \), the recipient solves the differential equation with the transmitted function \( y(x) \) and initial conditions.
+
+\subsubsection*{Step 1: Verify the Initial Conditions}
+
+Using the transmitted equation and encrypted function:
+\begin{enumerate}
+    \item Compute \( y(0) \):
+    \[
+    y(0) = -10237.5e^0 - 23887.5e^0 + 34125 = 0.
+    \]
+
+    \item Compute \( y'(0) \):
+    \[
+    y'(x) = -20475e^{2x} - 71662.5e^{3x} + 45678 - 60904x + 45678x^2,
+    \]
+    \[
+    y'(0) = -20475 - 71662.5 + 45678 = 45678.
+    \]
+\end{enumerate}
+
+Both initial conditions match the transmitted values, confirming the solution's integrity.
+
+\subsubsection*{Step 2: Recover the Message \( M \)}
+The recipient identifies \( M \) directly from the initial condition \( y'(0) = M \). Thus, \( M = 45678 \).
+
+
+
+
+
+
 % Exploration of DLP
-\section*{Exploration of a Practical Case: Discrete Logarithmic Problem (DLP)}
+\subsection*{Practical Case of Discrete Logarithmic Problem (DLP)}
 
 To demonstrate the practical application of the DLP, we will explore a case using larger numbers and delve deeply into the mathematical modeling involved in encryption and decryption. The aim is to showcase the inherent computational difficulty and security of the DLP compared to calculus cryptography.
 
-\subsection*{Encryption}
+\subsubsection*{Encryption}
 
 We start by selecting the following parameters:
 \begin{itemize}
@@ -249,118 +392,8 @@ This requires solving for \( k \) in \( 5^k \equiv 34125 \pmod{104729} \), which
 Using this method, \( k = 23457 \) is recovered.
 
 
-\section*{Exploration of a Practical Case: Calculus Cryptography}
 
-To encrypt a large numerical message \( M \), calculus cryptography uses differential equations to encode the data into a function, with \( M \) embedded in its initial or boundary conditions. For this exploration, consider encrypting the message \( M = 45678 \) using a second-order non-homogeneous differential equation. The added complexity of a second-order equation models realistic challenges in encryption while highlighting the role of calculus.
 
-\subsubsection*{Step 1: Define the Encryption Differential Equation}
-
-We select the differential equation:
-\[
-\frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = f(x),
-\]
-where \( f(x) = 45678x^2 + 34125 \) encodes the message. The corresponding initial conditions are chosen as \( y(0) = 0 \) and \( y'(0) = M \), embedding \( M = 45678 \) as part of the solution.
-
-\subsubsection*{Step 2: Solve the Differential Equation}
-
-The general solution to this second-order equation is composed of a homogeneous part and a particular part:
-\[
-y(x) = y_h(x) + y_p(x),
-\]
-where \( y_h(x) \) solves the homogeneous equation:
-\[
-\frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = 0,
-\]
-and \( y_p(x) \) is a particular solution to the full equation.
-
-\paragraph*{Homogeneous Solution}
-For the homogeneous equation:
-\[
-r^2 - 5r + 6 = 0,
-\]
-solve the characteristic equation for roots:
-\[
-r = 2, \quad r = 3.
-\]
-Thus, the homogeneous solution is:
-\[
-y_h(x) = C_1e^{2x} + C_2e^{3x},
-\]
-where \( C_1 \) and \( C_2 \) are constants determined by the initial conditions.
-
-\paragraph*{Particular Solution}
-Assume a particular solution of the form \( y_p(x) = Ax^3 + Bx^2 + Cx + D \). Substituting \( y_p(x) \) and its derivatives into the original equation:
-\[
-\frac{d^2}{dx^2}(Ax^3 + Bx^2 + Cx + D) - 5\frac{d}{dx}(Ax^3 + Bx^2 + Cx + D) + 6(Ax^3 + Bx^2 + Cx + D) = 45678x^2 + 34125.
-\]
-Expanding and equating coefficients of \( x^n \), solve for \( A, B, C, \) and \( D \). This yields:
-\[
-y_p(x) = 15226x^3 - 30452x^2 + 45678x + 34125.
-\]
-
-Thus, the general solution is:
-\[
-y(x) = C_1e^{2x} + C_2e^{3x} + 15226x^3 - 30452x^2 + 45678x + 34125.
-\]
-
-\subsubsection*{Step 3: Apply Initial Conditions}
-
-Using \( y(0) = 0 \) and \( y'(0) = M = 45678 \):
-\begin{enumerate}
-    \item Substitute \( y(0) = 0 \):
-    \[
-    C_1 + C_2 + 34125 = 0 \quad \Rightarrow \quad C_1 + C_2 = -34125.
-    \]
-
-    \item Compute \( y'(x) \):
-    \[
-    y'(x) = 2C_1e^{2x} + 3C_2e^{3x} + 45678 - 60904x + 45678x^2.
-    \]
-    Substitute \( y'(0) = 45678 \):
-    \[
-    2C_1 + 3C_2 + 45678 = 45678 \quad \Rightarrow \quad 2C_1 + 3C_2 = 0.
-    \]
-
-    \item Solve this system of equations:
-    \[
-    C_1 = -10237.5, \quad C_2 = -23887.5.
-    \]
-\end{enumerate}
-
-Thus, the encrypted solution is:
-\[
-y(x) = -10237.5e^{2x} - 23887.5e^{3x} + 15226x^3 - 30452x^2 + 45678x + 34125.
-\]
-
-\subsubsection*{Transmission}
-The encrypted function \( y(x) \) and the differential equation \( \frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = f(x) \) are transmitted to the recipient, along with the initial conditions.
-
-\subsection*{Decryption Using Calculus Cryptography}
-
-To decrypt \( M \), the recipient solves the differential equation with the transmitted function \( y(x) \) and initial conditions.
-
-\subsubsection*{Step 1: Verify the Initial Conditions}
-
-Using the transmitted equation and encrypted function:
-\begin{enumerate}
-    \item Compute \( y(0) \):
-    \[
-    y(0) = -10237.5e^0 - 23887.5e^0 + 34125 = 0.
-    \]
-
-    \item Compute \( y'(0) \):
-    \[
-    y'(x) = -20475e^{2x} - 71662.5e^{3x} + 45678 - 60904x + 45678x^2,
-    \]
-    \[
-    y'(0) = -20475 - 71662.5 + 45678 = 45678.
-    \]
-\end{enumerate}
-
-Both initial conditions match the transmitted values, confirming the solution's integrity.
-
-\subsubsection*{Step 2: Recover the Message \( M \)}
-The recipient identifies \( M \) directly from the initial condition \( y'(0) = M \). Thus, \( M = 45678 \).
 
 
 
@@ -470,8 +503,11 @@ Davidson, James. "Optimization of Cryptographic Algorithms: Balancing Security a
 \bibitem{Gonzalez2018}
 Gonzalez, Maria L., and Anthony F. Turner. \textit{Differential Calculus and Its Applications}. Cambridge University Press, 2018.
 
+\bibitem{HandbookAppliedCryptography}
+Menezes, Alfred J., et al. \textit{Handbook of Applied Cryptography}. CRC Press, 1996.
+
 \bibitem{MITCalculus}
-    Kleiman, Diana. \textit{Calculus for Beginners and Artists: Introduction to Calculus}. Massachusetts Institute of Technology, 2006. Accessed 4 Dec. 2024. \url{https://math.mit.edu/~djk/calculus\_beginners/chapter00/section02.html}
+Kleiman, Diana. \textit{Calculus for Beginners and Artists: Introduction to Calculus}. Massachusetts Institute of Technology, 2006. Accessed 4 Dec. 2024. \url{https://math.mit.edu/~djk/calculus\_beginners/chapter00/section02.html}
 
 \bibitem{Koblitz1994}
 Koblitz, Neal. \textit{A Course in Number Theory and Cryptography}. 2nd ed., Springer-Verlag, 1994.
@@ -493,6 +529,12 @@ Shor, Peter W. "Polynomial-Time Algorithms for Prime Factorization and Discrete 
 
 \bibitem{Singh2023}
 Singh, Amit. "Analyzing Computational Complexity in Cryptographic Systems." \textit{Cryptology ePrint Archive}, 2023, www.eprint.iacr.org.
+
+\bibitem{Stewart2016}
+Stewart, James. \textit{Calculus: Early Transcendentals}. Cengage Learning, 2016.
+
+\bibitem{Trappe2006}
+Trappe, Wade, and Lawrence C. Washington. \textit{Introduction to Cryptography with Coding Theory}. Pearson, 2006.
 
 \bibitem{Turner2022}
 Turner, Alan, and Joseph Lee. "The Role of Large Prime Moduli in Ensuring Security of Cryptographic Protocols." \textit{Applied Mathematics and Computation}, vol. 19, no. 4, 2022, pp. 1235-1247.
