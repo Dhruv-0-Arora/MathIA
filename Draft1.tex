@@ -289,29 +289,88 @@ After encrypting the function, \( y(x) \) and the initial conditions are transmi
 
 \subsubsection*{Decryption}
 
-To decrypt \( M \), the recipient solves the differential equation with the transmitted function \( y(x) \) and initial conditions.
+To decrypt \( M \), the recipient must solve the differential equation:
+\[
+\frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = f(x),
+\]
+using the transmitted encrypted function \( y(x) \), the initial conditions, and the forcing function which they had before transmission \( f(x) = 45678x^2 + 34125 \).
 
-\subsubsection*{Step 1: Verify the Initial Conditions}
+\vspace{0.1in}
 
-Using the transmitted equation and encrypted function:
-\begin{enumerate}
-    \item Compute \( y(0) \):
-    \[
-    y(0) = -10237.5e^0 - 23887.5e^0 + 34125 = 0.
-    \]
+To begin, the recipient verifies the initial conditions to confirm the integrity of the transmitted function.
 
-    \item Compute \( y'(0) \):
-    \[
-    y'(x) = -20475e^{2x} - 71662.5e^{3x} + 45678 - 60904x + 45678x^2,
-    \]
-    \[
-    y'(0) = -20475 - 71662.5 + 45678 = 45678.
-    \]
-\end{enumerate}
+\vspace{0.1in}
 
-Both initial conditions match the transmitted values, confirming the solution's integrity.
+\centering First, compute \( y(0) \). Substitute \( x = 0 \) into the transmitted \( y(x) \):
+\[
+y(0) = C_1e^{2(0)} + C_2e^{3(0)} + 13723.44 = C_1 + C_2 + 13723.44.
+\]
+Using the initial condition \( y(0) = M = 83495 \), solve for \( C_1 + C_2 \):
+\[
+C_1 + C_2 = M - 13723.44 = 83495 - 13723.44 = 69771.56.
+\]
 
-After transmission and decryption, the recipient is able to correctly calculate \( M \) directly from the initial condition \( y'(0) = M \). As a result, \( y'(0) = M = 45678 \).
+Next, compute \( y'(0) \). Differentiate \( y(x) \) to find:
+\[
+y'(x) = 2C_1e^{2x} + 3C_2e^{3x} + 2(7613)x + 12688.33.
+\]
+Substitute \( x = 0 \):
+\[
+y'(0) = 2C_1 + 3C_2 + 12688.33.
+\]
+Using the initial condition \( y'(0) = 0 \), solve for \( 2C_1 + 3C_2 \):
+\[
+2C_1 + 3C_2 + 12688.33 = 0 \quad \Rightarrow \quad 2C_1 + 3C_2 = -12688.33.
+\]
+
+\vspace{0.1in}
+
+With the two equations:
+\[
+C_1 + C_2 = 69771.56,
+\]
+\[
+2C_1 + 3C_2 = -12688.33,
+\]
+solve for \( C_1 \) and \( C_2 \). From the first equation, express \( C_1 \) in terms of \( C_2 \):
+\[
+C_1 = 69771.56 - C_2.
+\]
+Substitute \( C_1 = 69771.56 - C_2 \) into the second equation:
+\[
+2(69771.56 - C_2) + 3C_2 = -12688.33.
+\]
+Simplify:
+\[
+139543.12 - 2C_2 + 3C_2 = -12688.33 \quad \Rightarrow \quad 139543.12 + C_2 = -12688.33.
+\]
+Solve for \( C_2 \):
+\[
+C_2 = -12688.33 - 139543.12 = -152231.45.
+\]
+Substitute \( C_2 = -152231.45 \) back into \( C_1 = 69771.56 - C_2 \):
+\[
+C_1 = 69771.56 - (-152231.45) = 69771.56 + 152231.45 = 222003.01.
+\]
+
+Thus, the values of the constants are:
+\[
+C_1 = 222003.01, \quad C_2 = -152231.45.
+\]
+
+\raggedright
+\setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.5 inches
+
+\vspace{0.1in}
+
+Finally, verify \( M \) using the transmitted initial condition \( y(0) \):
+\[
+y(0) = C_1 + C_2 + 13723.44 = 222003.01 - 152231.45 + 13723.44 = 83495.
+\]
+This confirms that the recipient has correctly decrypted \( M = 83495 \).
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.8)  8 DEC 2024 23:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.8)  8 DEC 2024 23:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -223,14 +223,14 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
 (A:\Users\a_dhr\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-[7] [8] [9] [10] [11] [12] [13] [14] [15] [16]
+[7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 5
-33.
+97.
 
 (A:\Users\a_dhr\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-[17] [18] (Draft1.aux)
+[19] [20] (Draft1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -257,9 +257,9 @@ dhr/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><A:/Users/
 a_dhr/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><A:/Users/
 a_dhr/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><A:/Users/
 a_dhr/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Draft1.pdf (19 pages, 183240 bytes).
+Output written on Draft1.pdf (21 pages, 186865 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
+ 131 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
