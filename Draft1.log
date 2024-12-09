@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.8)  9 DEC 2024 01:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.8)  9 DEC 2024 01:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -235,6 +235,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [2]
 
+LaTeX Warning: Citation `bhardwaj2014calculus' on page 3 undefined on input lin
+e 87.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
@@ -357,7 +361,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [15]
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 5
-03.
+00.
  (A:\Users\a_dhr\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
@@ -378,17 +382,33 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[17] (Draft1.aux)
+[17]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[18] (Draft1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 2286 strings out of 474486
- 36300 string characters out of 5743755
+ 2287 strings out of 474486
+ 36322 string characters out of 5743755
  1932542 words of memory out of 5000000
- 24567 multiletter control sequences out of 15000+600000
+ 24568 multiletter control sequences out of 15000+600000
  571469 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,12n,65p,844b,323s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -404,9 +424,9 @@ Data/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><A:/Users/a_dhr/A
 ppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><A:/Users/a_dhr/A
 ppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><A:/Users/a_dhr/A
 ppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Draft1.pdf (18 pages, 166984 bytes).
+Output written on Draft1.pdf (19 pages, 171553 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
+ 120 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
