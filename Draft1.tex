@@ -5,6 +5,7 @@
 \usepackage{geometry} % For setting margins
 \usepackage{fancyhdr} % For custom headers and footers
 \usepackage{indentfirst} % Ensures the first paragraph of each section is indented
+\usepackage{url}
 
 \setlength{\parindent}{0.5in} % Sets the paragraph indentation to 0.25 inches
 
@@ -29,10 +30,6 @@
     \begin{center}
         \vspace*{1in}
 
-        \textbf{IB MATH AA HL IA} \\
-
-        \vspace{0.5in}
-
         \Large \textbf{A Comparative Analysis of Calculus-Based Cryptography and the Discrete Logarithmic Problem} \\
 
         \vspace{0.5in}
@@ -41,7 +38,15 @@
 
         \vspace{0.25in}
 
-        8 December, 2024
+        Ms. Reinsch
+
+        \vspace{0.25in}
+
+        IB Math HL 2
+
+        \vspace{0.25in}
+
+        November  26, 2024
 
         \vspace{1.5in}
     \end{center}
@@ -49,18 +54,21 @@
 
 \newpage
 
-% Rationale
-\section{Rationale}
-Cryptography is essential for safeguarding information. Cryptographic encryption is everywhere from personal messages to large-scale data exchanges by governments. The security of these systems relies heavily on complex mathematical principles. As these systems evolve, the mathematical structures that they are built upon become more complex as the algorithms evolve with new findings being frequently published by academics. Differential calculus, with its focus on rates of change and optimization, can show how cryptographic algorithms perform under different conditions and help identify potential weaknesses. This is where my investigation takes root: I aim to explore the connections between calculus and cryptography to understand how mathematical techniques can enhance data security.
+\section*{Introduction}
 
-The discrete logarithm problem, a core piece of many cryptographic algorithms, is significant for ensuring the security of public-key systems. Despite its role, few studies analyze it through the lens of calculus. My investigation will do just this, using differential calculus to explore and potentially optimize the performance and security of the discrete logarithm problem in prime fields. Through this research, I intend to connect calculus with practical cryptographic applications, reinforcing the notion that mathematical theory can directly impact real-world challenges. This project not only furthers my understanding of differential calculus but also allows me to explore its implications in a field I am interested in like cybersecurity. The rationale for choosing this topic stems from both personal intrigue in building my own cryptographic algorithm to understand the foundations of such algorithms and the broader significance of secure information hosted on technology in our increasingly digital society.
+From an early age, I was fascinated by the mechanisms that secured communication. From disassembling the lock on my journal to uncover how it worked to learning about the encryption on the WhatsApp platform, my curiosity on the topic only deepened. While these tools can feel magical, cryptography, or the art of encoding messages, involves number theory, algebra, and more recently, advanced branches of mathematics including calculus \cite{Loxton1990}. Initially, my understanding of cryptography was confined to its discrete mathematical underpinnings with prime and modular arithmetic that formed the basis of the discrete logarithm problem. However, as I began to learn calculus, I started to question whether continuous mathematics could compare against existing mathematical implementations of encoding.
 
-% Aim
-\section{Aim}
-This exploration aims to investigate how differential calculus can be applied to optimize the security and efficiency of cryptographic algorithms. I will have a specific focus on the discrete logarithm problem within prime fields. The discrete logarithm problem is the core of the security of many cryptographic protocols by posing a challenge in finding the exponent \( x \) in the expression \( g^x \equiv h \pmod{p} \), where \( g \) is a generator, \( p \) is a large prime modulus, and \( h \) is an element of the group. My goal is to analyze how calculus-based approaches might enhance our understanding of this problem, potentially leading to insights that could improve the robustness of cryptographic algorithms.
+Calculus, being the mathematics of change, creates a framework for studying how cryptographic algorithms evolve when key parameters are treated as dynamic variables \cite{MITCalculus}. This realization led me to consider the intersection of continuous and discrete frameworks: Could differential calculus provide a more secure means of encoding than the discrete logarithm problem? The literature on cryptography primarily focuses on discrete mathematics, but as innovation continues to push the power of computers forward, interdisciplinary approaches may uncover subtle patterns or optimization opportunities.
 
-This investigation will start by establishing a broad understanding of differential calculus’s connection to modeling change and optimizing processes. Then, I’ll apply these principles to the discrete logarithm problem, examining whether calculus techniques can highlight any weaknesses or efficiencies in its current implementation. Assumptions, such as the use of a sufficiently large prime \( p \) to ensure security, the presence of a primitive root \( g \), and the computational hardness of the discrete logarithm, provide a realistic framework for my analysis.
+\section*{Aim and Rationale}
 
+This investigation aims to explore how differential calculus can optimize the security of cryptographic algorithms by comparing it to the discrete logarithm problem. The discrete logarithm problem is at the core of security protocols, presenting the challenge of solving:
+\[
+g^x \equiv h \pmod{p},
+\]
+where \( g \) is a generator, \( p \) is a large prime modulus, and \( h \) is an element of the group. This study evaluates whether a calculus-based approach can offer comparable cryptographic strength by modeling and analyzing both methods in a practical scenario.
+
+This study will begin by establishing the theoretical foundation of differential calculus in modeling change and optimizing processes relevant to cryptography. Both methods will be compared by applying the discrete logarithm problem and a calculus-based approach to a specific cryptographic scenario. Assumptions such as the computational hardness of the discrete logarithm, the use of a sufficiently large prime \( p \), and the presence of a primitive root \( g \) will ensure realistic analysis. By highlighting the strengths and limitations of each approach, this exploration seeks to bridge theoretical mathematics with real-world cryptographic applications.
 
 
 
@@ -462,14 +470,20 @@ Davidson, James. "Optimization of Cryptographic Algorithms: Balancing Security a
 \bibitem{Gonzalez2018}
 Gonzalez, Maria L., and Anthony F. Turner. \textit{Differential Calculus and Its Applications}. Cambridge University Press, 2018.
 
+\bibitem{MITCalculus}
+    Kleiman, Diana. \textit{Calculus for Beginners and Artists: Introduction to Calculus}. Massachusetts Institute of Technology, 2006. Accessed 4 Dec. 2024. \url{https://math.mit.edu/~djk/calculus\_beginners/chapter00/section02.html}
+
 \bibitem{Koblitz1994}
 Koblitz, Neal. \textit{A Course in Number Theory and Cryptography}. 2nd ed., Springer-Verlag, 1994.
 
+\bibitem{Loxton1990}
+Loxton, J. H., editor. \textit{Number Theory and Cryptography}. Cambridge University Press, 1990.
+
 \bibitem{MathWorks2023}
-MathWorks. "Modular Arithmetic in Cryptography: Basics and Applications." \textit{MathWorks}, MathWorks, 2023, www.mathworks.com/modular-arithmetic.
+MathWorks. "Modular Arithmetic in Cryptography: Basics and Applications." \textit{MathWorks}, MathWorks, 2023, \url{www.mathworks.com/modular-arithmetic}.
 
 \bibitem{NIST2022}
-National Institute of Standards and Technology (NIST). "The Discrete Logarithm Problem: A Core in Cryptographic Security." \textit{NIST Computer Security Resource Center}, U.S. Department of Commerce, 2022, csrc.nist.gov/publications/discrete-logarithm-problem.
+National Institute of Standards and Technology (NIST). "The Discrete Logarithm Problem: A Core in Cryptographic Security." \textit{NIST Computer Security Resource Center}, U.S. Department of Commerce, 2022, \url{csrc.nist.gov/publications/discrete-logarithm-problem}.
 
 \bibitem{Parker2021}
 Parker, Thomas. "Differential Calculus for Non-Continuous Functions: A Practical Approach." \textit{Mathematics Today}, vol. 14, no. 2, 2021, pp. 102-119.
@@ -484,7 +498,7 @@ Singh, Amit. "Analyzing Computational Complexity in Cryptographic Systems." \tex
 Turner, Alan, and Joseph Lee. "The Role of Large Prime Moduli in Ensuring Security of Cryptographic Protocols." \textit{Applied Mathematics and Computation}, vol. 19, no. 4, 2022, pp. 1235-1247.
 
 \bibitem{Cambridge2023}
-University of Cambridge. "Introduction to Cryptographic Methods: A Lecture Series on Information Security." \textit{Centre for Information Security}, 2023, www.infosec.cam.ac.uk/lectures/crypto.
+University of Cambridge. "Introduction to Cryptographic Methods: A Lecture Series on Information Security." \textit{Centre for Information Security}, 2023, \url{www.infosec.cam.ac.uk/lectures/crypto}.
 
 \end{thebibliography}
 
